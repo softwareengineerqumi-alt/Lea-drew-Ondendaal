@@ -3,759 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LM Nailed It! | Luxury Nail Salon & Appointment Portal</title>
+    <title>LM Nailed It | Nail Salon</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37',
+                        'gold-light': '#F4E8C1',
+                        'pink-soft': '#FFE4E1',
+                        'pink-hot': '#FF1493',
+                        'pink-deep': '#C71585',
+                        'pink-light': '#FFF0F5',
+                        'pink-pastel': '#FFB6C1',
+                    },
+                    animation: {
+                        float: 'float 4s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --pink-bg: #fff0f5;
-            --pink-soft: #ffe4e9;
-            --pink-primary: #ff69b4;
-            --pink-deep: #c71585;
-            --gold: #d4af37;
-            --gold-light: #f3e5ab;
-            --gold-dark: #b8860b;
-            --glass-bg: rgba(255, 255, 255, 0.94);
-            --glass-border: rgba(212, 175, 55, 0.6);
+        /* Liquid Glass / Glassmorphism effect */
+        .liquid-glass {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(255, 105, 180, 0.2);
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--pink-bg);
-            /* Immersive background using her exact nail work photo with a refined soft pink/gold gradient wash */
-            background-image: linear-gradient(rgba(255, 240, 245, 0.92), rgba(255, 228, 233, 0.95)), url('image.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: #4a2e35;
-            padding-bottom: 80px;
-        }
-
-        /* Top Navigation */
-        .site-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border-bottom: 2px solid var(--gold);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
-        }
-
-        .nav-logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--pink-deep));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--gold-dark);
-            cursor: pointer;
-        }
-
-        .nav-links span:hover {
-            color: var(--pink-primary);
-        }
-
-        /* Hero Section */
-        .hero-section {
-            padding: 80px 20px;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: #fff;
-            padding: 8px 22px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-            text-transform: uppercase;
-        }
-
-        .hero-section h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, var(--pink-deep), var(--gold-dark));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-section p {
-            font-size: 1.1rem;
-            color: #6d4c5c;
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-
-        .hero-btn {
-            background: linear-gradient(135deg, var(--pink-primary), var(--pink-deep));
-            color: #fff;
-            padding: 14px 30px;
-            border-radius: 14px;
-            font-weight: 800;
-            font-size: 1rem;
-            border: 2px solid var(--gold);
-            cursor: pointer;
-            box-shadow: 0 6px 25px rgba(255, 105, 180, 0.4);
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .hero-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
-        }
-
-        .main-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            color: var(--pink-deep);
-            border-bottom: 2px solid var(--gold);
-            padding-bottom: 12px;
-            margin-top: 50px;
-            margin-bottom: 25px;
-            font-size: 1.8rem;
-            letter-spacing: 0.8px;
-            font-weight: 800;
-            text-align: center;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        /* Product Card */
-        .card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 2px solid var(--gold);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px 0 rgba(212, 175, 55, 0.2);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 15px 40px 0 rgba(255, 105, 180, 0.3);
-        }
-
-        .card-img-container {
-            width: 100%;
-            height: 240px;
-            overflow: hidden;
-            position: relative;
-            background: #fff;
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        .card-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 30%;
-            transition: transform 0.5s ease;
-        }
-
-        .card:hover .card-img-container img {
-            transform: scale(1.05);
-        }
-
-        .card-content {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            justify-content: space-between;
-        }
-
-        .card h3 {
-            margin: 0 0 8px 0;
-            font-size: 1.25rem;
-            color: var(--pink-deep);
-            font-weight: 700;
-        }
-
-        .desc {
-            font-size: 0.9rem;
-            color: #6d4c5c;
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-
-        .price-discount-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            background: rgba(255, 240, 245, 0.8);
-            padding: 8px 12px;
-            border-radius: 10px;
-            border: 1px solid var(--gold);
-        }
-
-        .price {
-            color: var(--gold-dark);
-            font-weight: 800;
-            font-size: 1.3rem;
-        }
-
-        .discount-badge {
-            background: var(--pink-primary);
-            color: #fff;
-            font-size: 0.75rem;
-            font-weight: 800;
-            padding: 4px 8px;
-            border-radius: 6px;
-            text-transform: uppercase;
-        }
-
-        .liquid-btn {
-            background: linear-gradient(135deg, #fff, var(--pink-soft));
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--gold);
-            color: var(--pink-deep);
-            padding: 12px;
-            border-radius: 14px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
-            text-align: center;
-            width: 100%;
-            letter-spacing: 0.5px;
-        }
-
-        .liquid-btn:hover {
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            border-color: var(--pink-deep);
-            color: #fff;
-            transform: scale(1.02);
-        }
-
-        /* Checkout Container */
-        .checkout-container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            margin-top: 60px;
-            padding: 35px;
-            border-radius: 24px;
-            border: 2px solid var(--gold);
-            box-shadow: 0 15px 40px 0 rgba(212, 175, 55, 0.25);
-        }
-
-        .checkout-btn {
-            background: linear-gradient(135deg, var(--pink-primary), var(--pink-deep));
-            border: 1px solid var(--gold);
-            font-size: 1.2rem;
-            margin-top: 25px;
-            color: #fff;
-        }
-
-        .checkout-btn:hover {
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: #fff;
-        }
-
-        /* Modal Overlay */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(74, 46, 53, 0.85);
-            backdrop-filter: blur(16px);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal-content {
-            background: #fff5f8;
-            backdrop-filter: blur(24px);
-            border: 2px solid var(--gold);
-            padding: 30px;
-            border-radius: 26px;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 0 50px rgba(212, 175, 55, 0.4);
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .slip-box {
-            background: #ffffff;
-            border: 1px dashed var(--gold);
-            padding: 15px;
-            border-radius: 14px;
-            font-family: monospace;
-            color: var(--pink-deep);
-            font-size: 0.85rem;
-            margin: 15px 0;
-            white-space: pre-line;
-            line-height: 1.5;
-            max-height: 180px;
-            overflow-y: auto;
-        }
-
-        .modal-content label {
-            font-size: 0.9rem;
-            color: var(--pink-deep);
-            font-weight: 700;
-            display: block;
-            margin-top: 10px;
-        }
-
-        .modal-content input {
-            width: 100%;
-            padding: 12px;
-            margin: 8px 0 12px 0;
-            border-radius: 12px;
-            border: 1px solid var(--gold);
-            background: #fff;
-            color: #4a2e35;
-            box-sizing: border-box;
-            outline: none;
-            font-size: 1rem;
-        }
-
-        .modal-content input:focus {
-            border-color: var(--pink-primary);
-            box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
-        }
-
-        .payment-options {
-            display: flex;
-            gap: 15px;
-            margin: 10px 0 15px 0;
-        }
-
-        .payment-option-card {
-            flex: 1;
-            background: #fff;
-            border: 1px solid var(--gold);
-            padding: 12px;
-            border-radius: 12px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--pink-deep);
-        }
-
-        .payment-option-card input {
-            margin-right: 6px;
-            width: auto;
-            margin: 0 6px 0 0;
-        }
-
-        .cart-item-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            background: rgba(255, 105, 180, 0.08);
-            padding: 10px 14px;
-            border-radius: 10px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            color: var(--pink-deep);
-            font-weight: 600;
-        }
-
-        .remove-btn {
-            background: rgba(219, 39, 119, 0.2);
-            border: 1px solid var(--pink-primary);
-            color: var(--pink-deep);
-            padding: 6px 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            font-weight: 700;
-            transition: all 0.2s ease;
-        }
-
-        .remove-btn:hover {
-            background: var(--pink-primary);
-            color: #fff;
-        }
-
-        footer {
-            margin-top: 80px;
-            text-align: center;
-            color: var(--pink-deep);
-            font-size: 0.9rem;
-            font-weight: 600;
-            border-top: 2px solid var(--gold);
-            padding-top: 25px;
+        .liquid-glass-dark {
+            background: rgba(26, 26, 26, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
     </style>
 </head>
-<body>
+<body class="bg-gradient-to-br from-pink-light via-pink-soft to-pink-100 text-gray-800 font-sans min-h-screen relative overflow-x-hidden">
 
-    <!-- NAV BAR -->
-    <div class="site-nav">
-        <div class="nav-logo">LM NAILED IT!</div>
-        <div class="nav-links">
-            <span onclick="document.getElementById('services-grid').scrollIntoView({behavior: 'smooth'})">Products Folder</span>
-            <span onclick="openBookingModal()">Book Appointment</span>
-            <span onclick="alert('Contact: 074 038 4030 | Appointments Only')">Tel: 074 038 4030</span>
+    <!-- Floating Liquid Glass Navigation -->
+    <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-11/12 max-w-4xl">
+        <div class="liquid-glass rounded-full px-6 py-3 flex justify-between items-center shadow-lg">
+            <div class="flex items-center space-x-2">
+                <span class="font-bold tracking-wider text-pink-deep text-lg">LM NAILED IT</span>
+            </div>
+            <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-700">
+                <a href="#features" class="hover:text-pink-hot transition">Services</a>
+                <a href="#gallery" class="hover:text-pink-hot transition">Design Gallery</a>
+                <a href="#contact" class="hover:text-pink-hot transition">Contact</a>
+            </div>
+            <button onclick="openBookingModal()" class="liquid-glass bg-gradient-to-r from-pink-hot to-pink-deep text-white px-5 py-2 rounded-full font-semibold shadow-md animate-float hover:scale-105 transition transform">
+                Book Now ✨
+            </button>
         </div>
-    </div>
+    </nav>
 
-    <!-- HERO SECTION -->
-    <div class="hero-section">
-        <div class="hero-badge">✨ 10% OFF YOUR FIRST VISIT! ✨</div>
-        <h1>BEAUTIFUL NAILS. CONFIDENT YOU. LET'S NAIL IT!</h1>
-        <p>Premium nail sets from our exclusive collection. Choose your favorite look and book your session with flexible payment options.</p>
-        <button class="hero-btn" onclick="document.getElementById('services-grid').scrollIntoView({behavior: 'smooth'})">Explore Products Folder</button>
-    </div>
-
-    <div class="main-wrapper">
-        
-        <!-- PRODUCTS FOLDER -->
-        <h2 class="section-title" id="services-grid">📁 Products Folder (Signature Nail Collections)</h2>
-        <div class="grid">
-            
-            <!-- Item 1 -->
-            <div class="card">
-                <div class="card-img-container">
-                    <img src="image.png" alt="Red & White Floral French">
-                </div>
-                <div class="card-content">
-                    <div>
-                        <h3>Red & White Floral French</h3>
-                        <div class="desc">Stunning red tips accented with delicate hand-painted white floral art.</div>
-                    </div>
-                    <div>
-                        <div class="price-discount-row">
-                            <span class="price">R250</span>
-                            <span class="discount-badge">10% Off 1st Visit</span>
-                        </div>
-                        <button class="liquid-btn" onclick="addItem('Red & White Floral French', 250)">Book Appointment</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Item 2 -->
-            <div class="card">
-                <div class="card-img-container">
-                    <img src="image_2.png" alt="Zebra & Red Spot Stilettos">
-                </div>
-                <div class="card-content">
-                    <div>
-                        <h3>Zebra & Red Dot Stilettos</h3>
-                        <div class="desc">Daring stiletto shape featuring bold zebra tips, polka dots, and gold charms.</div>
-                    </div>
-                    <div>
-                        <div class="price-discount-row">
-                            <span class="price">R300</span>
-                            <span class="discount-badge">Promo Deal</span>
-                        </div>
-                        <button class="liquid-btn" onclick="addItem('Zebra & Red Spot Stilettos', 300)">Book Appointment</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Item 3 -->
-            <div class="card">
-                <div class="card-img-container">
-                    <img src="image_3.png" alt="Soft Pink Almond Florals">
-                </div>
-                <div class="card-content">
-                    <div>
-                        <h3>Soft Pink Almond Florals</h3>
-                        <div class="desc">Classic soft pink almond-shaped acrylics with raised white floral detailing.</div>
-                    </div>
-                    <div>
-                        <div class="price-discount-row">
-                            <span class="price">R220</span>
-                            <span class="discount-badge">Save R30</span>
-                        </div>
-                        <button class="liquid-btn" onclick="addItem('Soft Pink Almond Florals', 220)">Book Appointment</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Item 4 -->
-            <div class="card">
-                <div class="card-img-container">
-                    <img src="image_4.png" alt="Pearl Accent White French">
-                </div>
-                <div class="card-content">
-                    <div>
-                        <h3>Pearl Accent White French</h3>
-                        <div class="desc">Clean white French tips on a pink base enhanced with dainty micro-pearls.</div>
-                    </div>
-                    <div>
-                        <div class="price-discount-row">
-                            <span class="price">R260</span>
-                            <span class="discount-badge">Best Seller</span>
-                        </div>
-                        <button class="liquid-btn" onclick="addItem('Pearl Accent White French', 260)">Book Appointment</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Item 5 -->
-            <div class="card">
-                <div class="card-img-container">
-                    <img src="image_5.png" alt="Barbie Pink & Cow Print">
-                </div>
-                <div class="card-content">
-                    <div>
-                        <h3>Barbie Pink & Cow Print</h3>
-                        <div class="desc">Vibrant pink gloss paired with trendy playful cow print nail art.</div>
-                    </div>
-                    <div>
-                        <div class="price-discount-row">
-                            <span class="price">R280</span>
-                            <span class="discount-badge">Trending</span>
-                        </div>
-                        <button class="liquid-btn" onclick="addItem('Barbie Pink & Cow Print', 280)">Book Appointment</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Item 6 -->
-            <div class="card">
-                <div class="card-img-container">
-                    <img src="image_7.png" alt="Red & Leopard Print Glam">
-                </div>
-                <div class="card-content">
-                    <div>
-                        <h3>Red & Leopard Print Glam</h3>
-                        <div class="desc">Fiery red gloss combined with chic pink-and-black leopard accent nails.</div>
-                    </div>
-                    <div>
-                        <div class="price-discount-row">
-                            <span class="price">R290</span>
-                            <span class="discount-badge">Special Edition</span>
-                        </div>
-                        <button class="liquid-btn" onclick="addItem('Red & Leopard Print Glam', 290)">Book Appointment</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Item 7 -->
-            <div class="card">
-                <div class="card-img-container">
-                    <img src="image_8.png" alt="Pink Bows & Leopard French">
-                </div>
-                <div class="card-content">
-                    <div>
-                        <h3>Pink Bows & Leopard French</h3>
-                        <div class="desc">Soft pink square nails featuring 3D bow sculptures and leopard print tips.</div>
-                    </div>
-                    <div>
-                        <div class="price-discount-row">
-                            <span class="price">R320</span>
-                            <span class="discount-badge">VIP Special</span>
-                        </div>
-                        <button class="liquid-btn" onclick="addItem('Pink Bows & Leopard French', 320)">Book Appointment</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Item 8 -->
-            <div class="card">
-                <div class="card-img-container">
-                    <img src="image_10.png" alt="Red Polka Dots & Bow Art">
-                </div>
-                <div class="card-content">
-                    <div>
-                        <h3>Red Polka Dots & Bow Art</h3>
-                        <div class="desc">Charming rich red nails with white polka dot patterns and custom bow accents.</div>
-                    </div>
-                    <div>
-                        <div class="price-discount-row">
-                            <span class="price">R270</span>
-                            <span class="discount-badge">New Arrival</span>
-                        </div>
-                        <button class="liquid-btn" onclick="addItem('Red Polka Dots & Bow Art', 270)">Book Appointment</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- LIVE CART AND SUMMARY -->
-        <div class="checkout-container">
-            <h3 style="color: var(--pink-deep); margin-top:0; font-size: 1.4rem;">Your Booking Summary</h3>
-            <div id="item-list" style="color: #6d4c5c; margin: 20px 0; font-size: 1rem;">No nail sets selected yet. Choose your favorite design from the Products folder above to start.</div>
-            <hr style="border-color: rgba(212, 175, 55, 0.4); margin: 20px 0;">
-            <p style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:bold; margin-bottom:0; color: var(--pink-deep);">
-                <span>Total:</span> <span id="total" style="color: var(--gold-dark);">R0.00</span>
+    <!-- Header / Hero Section -->
+    <header class="pt-32 pb-16 px-6 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6 text-center md:text-left">
+            <span class="inline-block liquid-glass text-pink-deep text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full border border-pink-300">
+                Appointments Only 💅
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-gray-900 leading-tight">
+                BEAUTIFUL NAILS. <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-hot to-gold">CONFIDENT YOU.</span> <br>
+                LET'S NAIL IT!
+            </h1>
+            <p class="text-gray-600 text-lg">
+                Premium nail services with precision, creativity & care. Your nails, your vibe.
             </p>
-            <button class="liquid-btn checkout-btn" onclick="openBookingModal()">Proceed to Book Appointment</button>
+            <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 pt-2">
+                <button onclick="openBookingModal()" class="liquid-glass bg-pink-hot text-white font-bold px-8 py-3.5 rounded-full shadow-lg animate-float hover:bg-pink-deep transition">
+                    Book Appointment Now
+                </button>
+                <a href="tel:0740384030" class="liquid-glass border border-gold text-gray-800 font-semibold px-8 py-3.5 rounded-full flex items-center justify-center gap-2 hover:bg-white/40 transition">
+                    📞 0740384030
+                </a>
+            </div>
         </div>
 
+        <!-- Hero Graphic & Promo Badge -->
+        <div class="relative flex justify-center">
+            <!-- Floating 10% Off Badge -->
+            <div class="absolute -top-6 -left-6 z-20 liquid-glass bg-gradient-to-br from-pink-hot to-gold text-white w-28 h-28 rounded-full flex flex-col items-center justify-center shadow-xl animate-float text-center p-2 border-2 border-white">
+                <span class="text-xl font-black">10%</span>
+                <span class="text-xs font-bold uppercase tracking-tight">OFF FIRST VISIT</span>
+            </div>
+            
+            <!-- Main Salon Showcase Card -->
+            <div class="liquid-glass p-4 rounded-3xl shadow-2xl max-w-sm w-full border border-gold/50">
+                <img src="assets/images/image.png" alt="LM Nailed It Salon Banner" class="rounded-2xl w-full h-80 object-cover shadow-inner" onerror="this.src='https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80'">
+                <div class="mt-4 text-center">
+                    <p class="text-sm font-semibold text-pink-deep">✨ Trendy Designs & Flawless Results</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="py-12 px-6 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="liquid-glass p-6 rounded-2xl text-center space-y-3 hover:scale-105 transition transform">
+                <div class="w-12 h-12 mx-auto bg-pink-hot/10 text-pink-hot rounded-full flex items-center justify-center text-xl font-bold border border-pink-hot/30">💎</div>
+                <h3 class="font-bold text-gray-900">PREMIUM QUALITY</h3>
+                <p class="text-sm text-gray-600">Long lasting, flawless results customized to perfection.</p>
+            </div>
+            <div class="liquid-glass p-6 rounded-2xl text-center space-y-3 hover:scale-105 transition transform">
+                <div class="w-12 h-12 mx-auto bg-pink-hot/10 text-pink-hot rounded-full flex items-center justify-center text-xl font-bold border border-pink-hot/30">💖</div>
+                <h3 class="font-bold text-gray-900">TRENDY DESIGNS</h3>
+                <p class="text-sm text-gray-600">From chic & classy to bold & beautiful nail art.</p>
+            </div>
+            <div class="liquid-glass p-6 rounded-2xl text-center space-y-3 hover:scale-105 transition transform">
+                <div class="w-12 h-12 mx-auto bg-pink-hot/10 text-pink-hot rounded-full flex items-center justify-center text-xl font-bold border border-pink-hot/30">🛡️</div>
+                <h3 class="font-bold text-gray-900">HYGIENE FIRST</h3>
+                <p class="text-sm text-gray-600">Clean, safe & professional environment every single time.</p>
+            </div>
+            <div class="liquid-glass p-6 rounded-2xl text-center space-y-3 hover:scale-105 transition transform">
+                <div class="w-12 h-12 mx-auto bg-pink-hot/10 text-pink-hot rounded-full flex items-center justify-center text-xl font-bold border border-pink-hot/30">📅</div>
+                <h3 class="font-bold text-gray-900">BOOK & RELAX</h3>
+                <p class="text-sm text-gray-600">Your perfect nails are just one appointment away!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Gallery Section (All client images organized in assets/images/) -->
+    <section id="gallery" class="py-16 px-6 max-w-6xl mx-auto">
+        <div class="text-center space-y-3 mb-12">
+            <span class="text-pink-deep text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full liquid-glass border border-pink-300">Portfolio</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Stunning Client Nail Designs</h2>
+            <p class="text-gray-600">Explore our signature work featuring custom art, gems, and precision French tips.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Gallery Item 2 -->
+            <div class="liquid-glass p-4 rounded-3xl shadow-xl hover:scale-105 transition duration-300 border border-gold/40">
+                <img src="assets/images/image_2.png" alt="Celestial Star French Nails" class="rounded-2xl w-full h-72 object-cover shadow-md">
+                <div class="mt-4 px-2">
+                    <h3 class="font-bold text-gray-900">Celestial Star & French Tips</h3>
+                    <p class="text-xs text-gray-600 mt-1">Detailed gold star accents with classic deep blue & white tips.</p>
+                </div>
+            </div>
+            <!-- Gallery Item 3 -->
+            <div class="liquid-glass p-4 rounded-3xl shadow-xl hover:scale-105 transition duration-300 border border-gold/40">
+                <img src="assets/images/image_3.png" alt="Cute Teddy Bear Art Nails" class="rounded-2xl w-full h-72 object-cover shadow-md">
+                <div class="mt-4 px-2">
+                    <h3 class="font-bold text-gray-900">Teddy Bear Love Set</h3>
+                    <p class="text-xs text-gray-600 mt-1">Soft pink square nails featuring adorable stitched teddy bear art.</p>
+                </div>
+            </div>
+            <!-- Gallery Item 4 -->
+            <div class="liquid-glass p-4 rounded-3xl shadow-xl hover:scale-105 transition duration-300 border border-gold/40">
+                <img src="assets/images/image_4.png" alt="Gold Outline Floral Art Nails" class="rounded-2xl w-full h-72 object-cover shadow-md">
+                <div class="mt-4 px-2">
+                    <h3 class="font-bold text-gray-900">Golden Botanical Florals</h3>
+                    <p class="text-xs text-gray-600 mt-1">Elegant nude base with delicate metallic gold leaf flower designs.</p>
+                </div>
+            </div>
+            <!-- Gallery Item 5 -->
+            <div class="liquid-glass p-4 rounded-3xl shadow-xl hover:scale-105 transition duration-300 border border-gold/40">
+                <img src="assets/images/image_5.png" alt="White Petals with Glitter Swirls" class="rounded-2xl w-full h-72 object-cover shadow-md">
+                <div class="mt-4 px-2">
+                    <h3 class="font-bold text-gray-900">Glitter Swirl & White Petals</h3>
+                    <p class="text-xs text-gray-600 mt-1">Sparkly pink shimmer base accented with fine glitter lines and floral petals.</p>
+                </div>
+            </div>
+            <!-- Gallery Item 6 -->
+            <div class="liquid-glass p-4 rounded-3xl shadow-xl hover:scale-105 transition duration-300 border border-gold/40">
+                <img src="assets/images/image_6.png" alt="Bold Red French with White Blossoms" class="rounded-2xl w-full h-72 object-cover shadow-md">
+                <div class="mt-4 px-2">
+                    <h3 class="font-bold text-gray-900">Crimson Red French Florals</h3>
+                    <p class="text-xs text-gray-600 mt-1">Striking vibrant red French tips adorned with crisp white blossoms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Booking Modal -->
+    <div id="bookingModal" class="fixed inset-0 z-50 hidden bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="liquid-glass-dark text-white rounded-3xl max-w-lg w-full p-8 relative shadow-2xl border border-gold">
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-gray-300 hover:text-white text-2xl font-bold">&times;</button>
+            
+            <h2 class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-soft to-gold mb-2">Book Your Appointment</h2>
+            <p class="text-xs text-gray-300 mb-6">Fill out the details below to secure your spot at LM Nailed It.</p>
+
+            <form id="bookingForm" onsubmit="handleBookingSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-gold mb-1">Full Name</label>
+                    <input type="text" id="clientName" required class="w-full bg-white/10 border border-gold/40 rounded-xl px-4 py-2.5 text-white placeholder-gray-400 focus:outline-none focus:border-gold" placeholder="Enter your name">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gold mb-1">Phone Number</label>
+                        <input type="tel" id="clientPhone" required class="w-full bg-white/10 border border-gold/40 rounded-xl px-4 py-2.5 text-white placeholder-gray-400 focus:outline-none focus:border-gold" placeholder="0740384030">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gold mb-1">Select Design / Service</label>
+                        <select id="serviceType" class="w-full bg-gray-900 border border-gold/40 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-gold">
+                            <option value="Celestial Star & French Tips">Celestial Star & French Tips</option>
+                            <option value="Teddy Bear Love Set">Teddy Bear Love Set</option>
+                            <option value="Golden Botanical Florals">Golden Botanical Florals</option>
+                            <option value="Glitter Swirl & White Petals">Glitter Swirl & White Petals</option>
+                            <option value="Crimson Red French Florals">Crimson Red French Florals</option>
+                            <option value="Custom Full Set (10% OFF First Visit)">Custom Full Set (10% OFF First Visit)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gold mb-1">Date</label>
+                        <input type="date" id="bookingDate" required class="w-full bg-white/10 border border-gold/40 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-gold">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gold mb-1">Time</label>
+                        <input type="time" id="bookingTime" required class="w-full bg-white/10 border border-gold/40 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-gold">
+                    </div>
+                </div>
+                
+                <!-- Payment Option -->
+                <div>
+                    <label class="block text-xs font-semibold text-gold mb-1">Payment Option</label>
+                    <div class="grid grid-cols-2 gap-4 mt-1">
+                        <label class="flex items-center space-x-2 bg-white/5 border border-gold/30 p-3 rounded-xl cursor-pointer hover:bg-white/10 transition">
+                            <input type="radio" name="paymentOption" value="Pay at Store" checked class="text-pink-hot focus:ring-pink-hot">
+                            <span class="text-sm font-medium">Pay at Store</span>
+                        </label>
+                        <label class="flex items-center space-x-2 bg-white/5 border border-gold/30 p-3 rounded-xl cursor-pointer hover:bg-white/10 transition">
+                            <input type="radio" name="paymentOption" value="Pay Online" class="text-pink-hot focus:ring-pink-hot">
+                            <span class="text-sm font-medium">Pay Online</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-pink-hot to-pink-deep text-white font-bold py-3 rounded-xl shadow-lg hover:opacity-90 transition mt-4">
+                    Confirm Appointment 🚀
+                </button>
+            </form>
+        </div>
     </div>
 
-    <footer>
-        <p>LM NAILED IT! NAIL SALON &bull; APPOINTMENTS ONLY &bull; TEL: 074 038 4030</p>
+    <!-- Success Confirmation Modal -->
+    <div id="successModal" class="fixed inset-0 z-50 hidden bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="liquid-glass-dark text-white rounded-3xl max-w-sm w-full p-6 text-center space-y-4 border border-gold shadow-2xl">
+            <div class="w-16 h-16 bg-green-500/20 text-green-400 rounded-full flex items-center justify-center mx-auto text-3xl border border-green-500/50">✓</div>
+            <h3 class="text-xl font-bold text-gold">Booking Confirmed!</h3>
+            <p id="successMessage" class="text-sm text-gray-300"></p>
+            <button onclick="closeSuccessModal()" class="w-full bg-pink-hot text-white font-semibold py-2.5 rounded-xl hover:bg-pink-deep transition">
+                Done
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact" class="py-12 px-6 max-w-6xl mx-auto border-t border-gold/30 mt-16 text-center space-y-4">
+        <h2 class="text-xl font-bold tracking-wider text-pink-deep">LM NAILED IT NAIL SALON</h2>
+        <p class="text-sm text-gray-600">Appointments Only • Call or WhatsApp: <a href="tel:0740384030" class="text-pink-hot font-bold hover:underline">0740384030</a></p>
+        <p class="text-xs text-gray-400">&copy; 2026 LM Nailed It. All rights reserved.</p>
     </footer>
 
-    <!-- BOOKING MODAL -->
-    <div class="modal" id="modalSlip">
-        <div class="modal-content">
-            <h3 style="color: var(--pink-deep); margin-top:0;">Complete Your Nail Appointment</h3>
-            <div class="slip-box" id="slipText"></div>
-            
-            <label>Your Full Name / WhatsApp Number:</label>
-            <input type="text" id="clientName" placeholder="e.g. Jessica">
-
-            <label>Appointment Date:</label>
-            <input type="date" id="appointmentDate">
-
-            <label>Time Slot:</label>
-            <input type="time" id="appointmentTime">
-
-            <label>Choose Payment Option:</label>
-            <div class="payment-options">
-                <div class="payment-option-card">
-                    <input type="radio" id="payStore" name="paymentChoice" value="Pay in store" checked>
-                    <label for="payStore" style="display:inline; cursor:pointer;">Pay in store</label>
-                </div>
-                <div class="payment-option-card">
-                    <input type="radio" id="payNow" name="paymentChoice" value="Pay online">
-                    <label for="payNow" style="display:inline; cursor:pointer;">Pay online</label>
-                </div>
-            </div>
-
-            <button class="liquid-btn" style="margin-top:15px; background: linear-gradient(135deg, var(--pink-primary), var(--pink-deep)); border-color: var(--gold); color:#fff;" onclick="finishOrder()">Confirm Booking & Send Slip</button>
-            <button class="liquid-btn" onclick="closeModal()" style="margin-top:10px; background: #fff; border-color: var(--gold); color: var(--pink-deep);">Cancel</button>
-        </div>
-    </div>
-
+    <!-- Interactive JavaScript Logic -->
     <script>
-        let cart = [];
-
-        function addItem(name, price) {
-            cart.push({ name, price });
-            updateCart();
-        }
-
-        function removeItem(index) {
-            cart.splice(index, 1);
-            updateCart();
-        }
-
-        function updateCart() {
-            const listEl = document.getElementById('item-list');
-            const totalEl = document.getElementById('total');
-
-            if (cart.length === 0) {
-                listEl.innerHTML = "No nail sets selected yet. Choose your favorite design from the Products folder above to start.";
-                totalEl.innerText = "R0.00";
-                return;
-            }
-
-            let html = "";
-            let total = 0;
-            cart.forEach((item, index) => {
-                html += `<div class="cart-item-row">
-                    <span>${item.name} - R${item.price}</span>
-                    <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
-                </div>`;
-                total += item.price;
-            });
-
-            listEl.innerHTML = html;
-            totalEl.innerText = `R${total}`;
-        }
-
         function openBookingModal() {
-            if (cart.length === 0) {
-                alert("Please select at least one nail design from the Products folder first!");
-                return;
-            }
-
-            let total = cart.reduce((sum, item) => sum + item.price, 0);
-            let timeStr = new Date().toLocaleTimeString();
-
-            let slip = `===============================\n`;
-            slip += `     LM NAILED IT! APPOINTMENT\n`;
-            slip += `     Appointments Only Service\n`;
-            slip += `===============================\n`;
-            slip += `Generated: ${timeStr}\n`;
-            cart.forEach(item => {
-                slip += `> ${item.name} ... R${item.price}\n`;
-            });
-            slip += `-------------------------------\n`;
-            slip += `TOTAL DUE: R${total}\n`;
-            slip += `===============================\n`;
-
-            document.getElementById('slipText').innerText = slip;
-            document.getElementById('modalSlip').style.display = 'flex';
+            document.getElementById('bookingModal').classList.remove('hidden');
         }
 
-        function closeModal() {
-            document.getElementById('modalSlip').style.display = 'none';
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
         }
 
-        function finishOrder() {
-            let name = document.getElementById('clientName').value;
-            let date = document.getElementById('appointmentDate').value;
-            let time = document.getElementById('appointmentTime').value;
-            let paymentChoice = document.querySelector('input[name="paymentChoice"]:checked').value;
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.add('hidden');
+        }
 
-            if (!name || !date || !time) {
-                alert("Please enter your name, appointment date, and time slot!");
-                return;
-            }
+        function handleBookingSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
+            const service = document.getElementById('serviceType').value;
+            const date = document.getElementById('bookingDate').value;
+            const time = document.getElementById('bookingTime').value;
+            const payment = document.querySelector('input[name="paymentOption"]:checked').value;
 
-            alert(`Booking Confirmed for ${name}!\nDate: ${date} at ${time}\nPayment Preference: ${paymentChoice}\n\nPlease contact LM Nailed It! at 074 038 4030 to finalize your slot.`);
-            closeModal();
-            cart = [];
-            updateCart();
-            document.getElementById('clientName').value = '';
-            document.getElementById('appointmentDate').value = '';
-            document.getElementById('appointmentTime').value = '';
+            const summaryText = `Thank you, ${name}! Your appointment for <strong>${service}</strong> on <strong>${date} at ${time}</strong> has been successfully booked. Payment Method: <strong>${payment}</strong>. We look forward to seeing you!`;
+            document.getElementById('successMessage').innerHTML = summaryText;
+
+            closeBookingModal();
+            document.getElementById('successModal').classList.remove('hidden');
+            document.getElementById('bookingForm').reset();
         }
     </script>
 </body>
