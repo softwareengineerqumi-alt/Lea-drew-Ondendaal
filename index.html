@@ -17,11 +17,9 @@
                         'pink-hot': '#FF1493',
                         'pink-deep': '#C71585',
                         'pink-light': '#FFF0F5',
-                        'pink-pastel': '#FFB6C1',
                     },
                     animation: {
                         float: 'float 4s ease-in-out infinite',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     },
                     keyframes: {
                         float: {
@@ -34,7 +32,6 @@
         }
     </script>
     <style>
-        /* Liquid Glass / Glassmorphism effect */
         .liquid-glass {
             background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(12px);
@@ -43,7 +40,7 @@
             box-shadow: 0 8px 32px 0 rgba(255, 105, 180, 0.2);
         }
         .liquid-glass-dark {
-            background: rgba(26, 26, 26, 0.75);
+            background: rgba(26, 26, 26, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(212, 175, 55, 0.5);
@@ -53,15 +50,13 @@
 </head>
 <body class="bg-gradient-to-br from-pink-light via-pink-soft to-pink-100 text-gray-800 font-sans min-h-screen relative overflow-x-hidden">
 
-    <!-- Floating Liquid Glass Navigation -->
+    <!-- Floating Navigation -->
     <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-11/12 max-w-4xl">
         <div class="liquid-glass rounded-full px-6 py-3 flex justify-between items-center shadow-lg">
-            <div class="flex items-center space-x-2">
-                <span class="font-bold tracking-wider text-pink-deep text-lg">LM NAILED IT</span>
-            </div>
+            <span class="font-bold tracking-wider text-pink-deep text-lg">LM NAILED IT</span>
             <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-700">
                 <a href="#features" class="hover:text-pink-hot transition">Services</a>
-                <a href="#gallery" class="hover:text-pink-hot transition">Design Gallery</a>
+                <a href="#gallery" class="hover:text-pink-hot transition">Gallery</a>
                 <a href="#contact" class="hover:text-pink-hot transition">Contact</a>
             </div>
             <button onclick="openBookingModal()" class="liquid-glass bg-gradient-to-r from-pink-hot to-pink-deep text-white px-5 py-2 rounded-full font-semibold shadow-md animate-float hover:scale-105 transition transform">
@@ -94,17 +89,13 @@
             </div>
         </div>
 
-        <!-- Hero Graphic & Promo Badge -->
         <div class="relative flex justify-center">
-            <!-- Floating 10% Off Badge -->
             <div class="absolute -top-6 -left-6 z-20 liquid-glass bg-gradient-to-br from-pink-hot to-gold text-white w-28 h-28 rounded-full flex flex-col items-center justify-center shadow-xl animate-float text-center p-2 border-2 border-white">
                 <span class="text-xl font-black">10%</span>
                 <span class="text-xs font-bold uppercase tracking-tight">OFF FIRST VISIT</span>
             </div>
-            
-            <!-- Main Salon Showcase Card -->
             <div class="liquid-glass p-4 rounded-3xl shadow-2xl max-w-sm w-full border border-gold/50">
-                <img src="assets/images/image.png" alt="LM Nailed It Salon Banner" class="rounded-2xl w-full h-80 object-cover shadow-inner" onerror="this.src='https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80'">
+                <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80" alt="LM Nailed It Salon Banner" class="rounded-2xl w-full h-80 object-cover shadow-inner">
                 <div class="mt-4 text-center">
                     <p class="text-sm font-semibold text-pink-deep">✨ Trendy Designs & Flawless Results</p>
                 </div>
@@ -138,53 +129,48 @@
         </div>
     </section>
 
-    <!-- Client Gallery Section (All client images organized in assets/images/) -->
+    <!-- Gallery Section (Professional Nail Inspirations) -->
     <section id="gallery" class="py-16 px-6 max-w-6xl mx-auto">
         <div class="text-center space-y-3 mb-12">
             <span class="text-pink-deep text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full liquid-glass border border-pink-300">Portfolio</span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Stunning Client Nail Designs</h2>
-            <p class="text-gray-600">Explore our signature work featuring custom art, gems, and precision French tips.</p>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900">Stunning Nail Designs</h2>
+            <p class="text-gray-600">Explore our signature work featuring custom art, gems, and precision styles.</p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Gallery Item 2 -->
             <div class="liquid-glass p-4 rounded-3xl shadow-xl hover:scale-105 transition duration-300 border border-gold/40">
-                <img src="assets/images/image_2.png" alt="Celestial Star French Nails" class="rounded-2xl w-full h-72 object-cover shadow-md">
+                <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=600&q=80" alt="Celestial Star French Nails" class="rounded-2xl w-full h-72 object-cover shadow-md">
                 <div class="mt-4 px-2">
                     <h3 class="font-bold text-gray-900">Celestial Star & French Tips</h3>
-                    <p class="text-xs text-gray-600 mt-1">Detailed gold star accents with classic deep blue & white tips.</p>
+                    <p class="text-xs text-gray-600 mt-1">Detailed gold star accents with classic tips.</p>
                 </div>
             </div>
-            <!-- Gallery Item 3 -->
             <div class="liquid-glass p-4 rounded-3xl shadow-xl hover:scale-105 transition duration-300 border border-gold/40">
-                <img src="assets/images/image_3.png" alt="Cute Teddy Bear Art Nails" class="rounded-2xl w-full h-72 object-cover shadow-md">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80" alt="Cute Teddy Bear Art Nails" class="rounded-2xl w-full h-72 object-cover shadow-md">
                 <div class="mt-4 px-2">
                     <h3 class="font-bold text-gray-900">Teddy Bear Love Set</h3>
-                    <p class="text-xs text-gray-600 mt-1">Soft pink square nails featuring adorable stitched teddy bear art.</p>
+                    <p class="text-xs text-gray-600 mt-1">Soft pink square nails featuring adorable art.</p>
                 </div>
             </div>
-            <!-- Gallery Item 4 -->
             <div class="liquid-glass p-4 rounded-3xl shadow-xl hover:scale-105 transition duration-300 border border-gold/40">
-                <img src="assets/images/image_4.png" alt="Gold Outline Floral Art Nails" class="rounded-2xl w-full h-72 object-cover shadow-md">
+                <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&w=600&q=80" alt="Gold Outline Floral Art Nails" class="rounded-2xl w-full h-72 object-cover shadow-md">
                 <div class="mt-4 px-2">
                     <h3 class="font-bold text-gray-900">Golden Botanical Florals</h3>
-                    <p class="text-xs text-gray-600 mt-1">Elegant nude base with delicate metallic gold leaf flower designs.</p>
+                    <p class="text-xs text-gray-600 mt-1">Elegant nude base with delicate metallic gold floral designs.</p>
                 </div>
             </div>
-            <!-- Gallery Item 5 -->
             <div class="liquid-glass p-4 rounded-3xl shadow-xl hover:scale-105 transition duration-300 border border-gold/40">
-                <img src="assets/images/image_5.png" alt="White Petals with Glitter Swirls" class="rounded-2xl w-full h-72 object-cover shadow-md">
+                <img src="https://images.unsplash.com/photo-1599557451478-5e60d3cb38e0?auto=format&fit=crop&w=600&q=80" alt="Glitter Swirl & White Petals" class="rounded-2xl w-full h-72 object-cover shadow-md">
                 <div class="mt-4 px-2">
                     <h3 class="font-bold text-gray-900">Glitter Swirl & White Petals</h3>
-                    <p class="text-xs text-gray-600 mt-1">Sparkly pink shimmer base accented with fine glitter lines and floral petals.</p>
+                    <p class="text-xs text-gray-600 mt-1">Sparkly shimmer base accented with fine lines.</p>
                 </div>
             </div>
-            <!-- Gallery Item 6 -->
             <div class="liquid-glass p-4 rounded-3xl shadow-xl hover:scale-105 transition duration-300 border border-gold/40">
-                <img src="assets/images/image_6.png" alt="Bold Red French with White Blossoms" class="rounded-2xl w-full h-72 object-cover shadow-md">
+                <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80" alt="Crimson Red French Florals" class="rounded-2xl w-full h-72 object-cover shadow-md">
                 <div class="mt-4 px-2">
                     <h3 class="font-bold text-gray-900">Crimson Red French Florals</h3>
-                    <p class="text-xs text-gray-600 mt-1">Striking vibrant red French tips adorned with crisp white blossoms.</p>
+                    <p class="text-xs text-gray-600 mt-1">Striking vibrant red French tips adorned with blossoms.</p>
                 </div>
             </div>
         </div>
@@ -253,14 +239,14 @@
         </div>
     </div>
 
-    <!-- Success Confirmation Modal -->
+    <!-- Success Confirmation & Slip Modal -->
     <div id="successModal" class="fixed inset-0 z-50 hidden bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
         <div class="liquid-glass-dark text-white rounded-3xl max-w-sm w-full p-6 text-center space-y-4 border border-gold shadow-2xl">
             <div class="w-16 h-16 bg-green-500/20 text-green-400 rounded-full flex items-center justify-center mx-auto text-3xl border border-green-500/50">✓</div>
-            <h3 class="text-xl font-bold text-gold">Booking Confirmed!</h3>
-            <p id="successMessage" class="text-sm text-gray-300"></p>
+            <h3 class="text-xl font-bold text-gold">Booking Slip Generated!</h3>
+            <div id="successMessage" class="text-xs text-gray-300 bg-black/40 p-3 rounded-xl text-left space-y-1"></div>
             <button onclick="closeSuccessModal()" class="w-full bg-pink-hot text-white font-semibold py-2.5 rounded-xl hover:bg-pink-deep transition">
-                Done
+                Done & Close
             </button>
         </div>
     </div>
@@ -295,10 +281,19 @@
             const date = document.getElementById('bookingDate').value;
             const time = document.getElementById('bookingTime').value;
             const payment = document.querySelector('input[name="paymentOption"]:checked').value;
+            const referenceId = 'LM-' + Math.floor(100000 + Math.random() * 900000);
 
-            const summaryText = `Thank you, ${name}! Your appointment for <strong>${service}</strong> on <strong>${date} at ${time}</strong> has been successfully booked. Payment Method: <strong>${payment}</strong>. We look forward to seeing you!`;
-            document.getElementById('successMessage').innerHTML = summaryText;
-
+            const slipHTML = `
+                <p><strong>Salon:</strong> LM Nailed It</p>
+                <p><strong>Ref ID:</strong> ${referenceId}</p>
+                <p><strong>Client:</strong> ${name} (${phone})</p>
+                <p><strong>Service:</strong> ${service}</p>
+                <p><strong>Date & Time:</strong> ${date} @ ${time}</p>
+                <p><strong>Payment Choice:</strong> ${payment}</p>
+                <p class="text-gold text-center pt-2 font-bold">✨ See you soon!</p>
+            `;
+            
+            document.getElementById('successMessage').innerHTML = slipHTML;
             closeBookingModal();
             document.getElementById('successModal').classList.remove('hidden');
             document.getElementById('bookingForm').reset();
