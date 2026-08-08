@@ -6,15 +6,15 @@
     <title>LM Nailed It! | Luxury Nail Salon & Appointment Portal</title>
     <style>
         :root {
-            --pink-light: #ffebf0;
+            --pink-bg: #fff0f5;
+            --pink-soft: #ffe4e9;
             --pink-primary: #ff69b4;
-            --pink-deep: #d81b60;
+            --pink-deep: #c71585;
             --gold: #d4af37;
             --gold-light: #f3e5ab;
-            --gold-dark: #aa771c;
-            --dark-bg: #120814;
-            --glass-bg: rgba(255, 105, 180, 0.08);
-            --glass-border: rgba(212, 175, 55, 0.35);
+            --gold-dark: #b8860b;
+            --glass-bg: rgba(255, 240, 245, 0.85);
+            --glass-border: rgba(212, 175, 55, 0.5);
         }
 
         * {
@@ -22,78 +22,134 @@
             margin: 0;
             padding: 0;
             scrollbar-width: thin;
-            scrollbar-color: var(--gold) var(--dark-bg);
+            scrollbar-color: var(--gold) var(--pink-bg);
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--dark-bg);
-            background-image: linear-gradient(rgba(18, 8, 20, 0.92), rgba(18, 8, 20, 0.96)), url('https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=1400&q=80');
+            background-color: var(--pink-bg);
+            /* Immersive background using her exact salon flyer image with a soft pink/gold translucent wash */
+            background-image: linear-gradient(rgba(255, 240, 245, 0.90), rgba(255, 228, 233, 0.95)), url('image_6.png');
             background-size: cover;
+            background-position: center;
             background-attachment: fixed;
-            color: #fce4ec;
+            color: #4a2e35;
             padding-bottom: 80px;
         }
 
-        header {
-            background: rgba(30, 10, 25, 0.88);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 3px solid var(--gold);
-            box-shadow: 0 15px 40px 0 rgba(212, 175, 55, 0.2);
-            position: relative;
-            overflow: hidden;
+        /* Top Navigation */
+        .site-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 2px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
         }
 
-        header h1 {
-            margin: 0;
-            background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--pink-primary));
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--pink-deep));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-size: 3rem;
-            text-shadow: 0 2px 20px rgba(212, 175, 55, 0.4);
-            letter-spacing: 1.5px;
-            font-weight: 800;
+            letter-spacing: 1px;
         }
 
-        header p {
-            margin: 12px 0 0 0;
-            color: var(--pink-light);
-            font-size: 1.15rem;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-        }
-
-        .promo-badge {
-            display: inline-block;
-            margin-top: 15px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: #120814;
-            padding: 6px 18px;
-            border-radius: 20px;
-            font-weight: 800;
+        .nav-links {
+            display: flex;
+            gap: 25px;
             font-size: 0.95rem;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            font-weight: 700;
+            color: var(--gold-dark);
+            cursor: pointer;
+        }
+
+        .nav-links span:hover {
+            color: var(--pink-primary);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 70px 20px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            text-transform: uppercase;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--pink-deep), var(--gold-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-section p {
+            font-size: 1.1rem;
+            color: #6d4c5c;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .hero-btn {
+            background: linear-gradient(135deg, var(--pink-primary), var(--pink-deep));
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: 14px;
+            font-weight: 800;
+            font-size: 1rem;
+            border: 2px solid var(--gold);
+            cursor: pointer;
+            box-shadow: 0 6px 25px rgba(255, 105, 180, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
             letter-spacing: 0.5px;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
         }
 
         .main-wrapper {
             max-width: 1200px;
-            margin: 40px auto;
+            margin: 0 auto;
             padding: 0 20px;
         }
 
         .section-title {
-            color: var(--gold);
-            border-bottom: 2px solid rgba(212, 175, 55, 0.4);
+            color: var(--pink-deep);
+            border-bottom: 2px solid var(--gold);
             padding-bottom: 12px;
-            margin-top: 60px;
+            margin-top: 50px;
             margin-bottom: 25px;
             font-size: 1.8rem;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
             letter-spacing: 0.8px;
+            font-weight: 800;
+            text-align: center;
         }
 
         .grid {
@@ -102,13 +158,14 @@
             gap: 25px;
         }
 
+        /* Liquid Glass Card Container in Pink & Gold */
         .card {
             background: var(--glass-bg);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 2px solid var(--gold);
             border-radius: 20px;
-            box-shadow: 0 10px 35px 0 rgba(0, 0, 0, 0.4);
+            box-shadow: 0 10px 30px 0 rgba(212, 175, 55, 0.2);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -117,23 +174,9 @@
             overflow: hidden;
         }
 
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 4px;
-            background: linear-gradient(90deg, var(--pink-primary), var(--gold));
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-        }
-
         .card:hover {
-            border-color: var(--gold);
             transform: translateY(-6px);
-            box-shadow: 0 15px 45px 0 rgba(212, 175, 55, 0.25);
-        }
-
-        .card:hover::before {
-            opacity: 1;
+            box-shadow: 0 15px 40px 0 rgba(255, 105, 180, 0.3);
         }
 
         .card-img-container {
@@ -141,7 +184,8 @@
             height: 220px;
             overflow: hidden;
             position: relative;
-            background: #000;
+            background: #fff;
+            border-bottom: 1px solid var(--glass-border);
         }
 
         .card-img-container img {
@@ -166,74 +210,79 @@
         .card h3 {
             margin: 0 0 8px 0;
             font-size: 1.25rem;
-            color: var(--gold-light);
+            color: var(--pink-deep);
             font-weight: 700;
         }
 
         .desc {
             font-size: 0.9rem;
-            color: #f8bbd0;
+            color: #6d4c5c;
             margin-bottom: 15px;
             line-height: 1.5;
         }
 
         .price {
-            color: var(--gold);
+            color: var(--gold-dark);
             font-weight: 800;
             font-size: 1.4rem;
             margin-bottom: 15px;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
         }
 
         .liquid-btn {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(255, 105, 180, 0.2));
+            background: linear-gradient(135deg, #fff, var(--pink-soft));
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            color: #fff;
+            border: 1px solid var(--gold);
+            color: var(--pink-deep);
             padding: 12px;
             border-radius: 14px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
             text-align: center;
             width: 100%;
             letter-spacing: 0.5px;
         }
 
         .liquid-btn:hover {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.45), rgba(255, 105, 180, 0.4));
-            border-color: var(--gold);
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
-            color: var(--gold-light);
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-color: var(--pink-deep);
+            color: #fff;
             transform: scale(1.02);
         }
 
+        /* Checkout Container */
         .checkout-container {
-            background: rgba(30, 10, 25, 0.88);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
             margin-top: 60px;
             padding: 35px;
             border-radius: 24px;
             border: 2px solid var(--gold);
-            box-shadow: 0 15px 50px 0 rgba(0, 0, 0, 0.6);
+            box-shadow: 0 15px 40px 0 rgba(212, 175, 55, 0.25);
         }
 
         .checkout-btn {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.4), rgba(255, 105, 180, 0.4));
+            background: linear-gradient(135deg, var(--pink-primary), var(--pink-deep));
             border: 1px solid var(--gold);
             font-size: 1.2rem;
             margin-top: 25px;
             color: #fff;
         }
 
+        .checkout-btn:hover {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #fff;
+        }
+
+        /* Modal Overlay */
         .modal {
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(12, 4, 15, 0.92);
+            background: rgba(74, 46, 53, 0.85);
             backdrop-filter: blur(16px);
             justify-content: center;
             align-items: center;
@@ -247,25 +296,25 @@
         }
 
         .modal-content {
-            background: rgba(30, 10, 25, 0.98);
+            background: #fff5f8;
             backdrop-filter: blur(24px);
             border: 2px solid var(--gold);
             padding: 30px;
             border-radius: 26px;
             max-width: 500px;
             width: 90%;
-            box-shadow: 0 0 60px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.4);
             max-height: 90vh;
             overflow-y: auto;
         }
 
         .slip-box {
-            background: rgba(15, 5, 12, 0.95);
+            background: #ffffff;
             border: 1px dashed var(--gold);
             padding: 15px;
             border-radius: 14px;
             font-family: monospace;
-            color: var(--gold-light);
+            color: var(--pink-deep);
             font-size: 0.85rem;
             margin: 15px 0;
             white-space: pre-line;
@@ -276,8 +325,8 @@
 
         .modal-content label {
             font-size: 0.9rem;
-            color: var(--gold-light);
-            font-weight: 600;
+            color: var(--pink-deep);
+            font-weight: 700;
             display: block;
             margin-top: 10px;
         }
@@ -287,17 +336,17 @@
             padding: 12px;
             margin: 8px 0 12px 0;
             border-radius: 12px;
-            border: 1px solid var(--glass-border);
-            background: rgba(15, 5, 12, 0.9);
-            color: #fff;
+            border: 1px solid var(--gold);
+            background: #fff;
+            color: #4a2e35;
             box-sizing: border-box;
             outline: none;
             font-size: 1rem;
         }
 
         .modal-content input:focus {
-            border-color: var(--gold);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            border-color: var(--pink-primary);
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
         }
 
         .payment-options {
@@ -308,15 +357,16 @@
 
         .payment-option-card {
             flex: 1;
-            background: rgba(15, 5, 12, 0.9);
-            border: 1px solid var(--glass-border);
+            background: #fff;
+            border: 1px solid var(--gold);
             padding: 12px;
             border-radius: 12px;
             text-align: center;
             cursor: pointer;
             transition: all 0.2s ease;
             font-size: 0.9rem;
-            font-weight: 600;
+            font-weight: 700;
+            color: var(--pink-deep);
         }
 
         .payment-option-card input {
@@ -330,42 +380,66 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255, 105, 180, 0.08);
             padding: 10px 14px;
             border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--pink-deep);
+            font-weight: 600;
         }
 
         .remove-btn {
-            background: rgba(219, 39, 119, 0.3);
-            border: 1px solid rgba(219, 39, 119, 0.6);
-            color: #fbcfe8;
+            background: rgba(219, 39, 119, 0.2);
+            border: 1px solid var(--pink-primary);
+            color: var(--pink-deep);
             padding: 6px 12px;
             border-radius: 8px;
             cursor: pointer;
             font-size: 0.8rem;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.2s ease;
         }
 
         .remove-btn:hover {
-            background: rgba(219, 39, 119, 0.7);
+            background: var(--pink-primary);
             color: #fff;
+        }
+
+        footer {
+            margin-top: 80px;
+            text-align: center;
+            color: var(--pink-deep);
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-top: 2px solid var(--gold);
+            padding-top: 25px;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>LM NAILED IT!</h1>
-        <p>Beautiful Nails. Confident You. Let's Nail It!</p>
-        <div class="promo-badge">✨ 10% OFF YOUR FIRST VISIT! ✨</div>
-    </header>
+    <!-- NAV BAR -->
+    <div class="site-nav">
+        <div class="nav-logo">LM NAILED IT!</div>
+        <div class="nav-links">
+            <span onclick="document.getElementById('services-grid').scrollIntoView({behavior: 'smooth'})">Services</span>
+            <span onclick="openBookingModal()">Book Appointment</span>
+            <span onclick="alert('Contact: 074 038 4030 | Appointments Only')">Tel: 074 038 4030</span>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <div class="hero-section">
+        <div class="hero-badge">✨ 10% OFF YOUR FIRST VISIT! ✨</div>
+        <h1>BEAUTIFUL NAILS. CONFIDENT YOU. LET'S NAIL IT!</h1>
+        <p>Premium nail services with precision, creativity & care. Your nails, your vibe. Book your appointment today.</p>
+        <button class="hero-btn" onclick="document.getElementById('services-grid').scrollIntoView({behavior: 'smooth'})">Book Now!</button>
+    </div>
 
     <div class="main-wrapper">
         
-        <!-- NAIL CATALOG WITH CROPPED SCREENSHOT IMAGES -->
-        <h2 class="section-title">Signature Nail Designs & Bookings</h2>
+        <!-- SERVICES CATALOG WITH EMBEDDED REAL IMAGES -->
+        <h2 class="section-title" id="services-grid">Signature Nail Collections</h2>
         <div class="grid">
             
             <!-- Item 1 -->
@@ -508,21 +582,25 @@
 
         <!-- LIVE CART AND SUMMARY -->
         <div class="checkout-container">
-            <h3 style="color: var(--gold-light); margin-top:0; font-size: 1.4rem;">Your Booking Summary</h3>
-            <div id="item-list" style="color: #fce4ec; margin: 20px 0; font-size: 1rem;">No nail sets selected yet.</div>
-            <hr style="border-color: rgba(212, 175, 55, 0.3); margin: 20px 0;">
-            <p style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:bold; margin-bottom:0;">
-                <span>Total:</span> <span id="total" style="color: var(--gold);">R0.00</span>
+            <h3 style="color: var(--pink-deep); margin-top:0; font-size: 1.4rem;">Your Booking Summary</h3>
+            <div id="item-list" style="color: #6d4c5c; margin: 20px 0; font-size: 1rem;">No nail sets selected yet. Choose your favorite design above to start.</div>
+            <hr style="border-color: rgba(212, 175, 55, 0.4); margin: 20px 0;">
+            <p style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:bold; margin-bottom:0; color: var(--pink-deep);">
+                <span>Total:</span> <span id="total" style="color: var(--gold-dark);">R0.00</span>
             </p>
             <button class="liquid-btn checkout-btn" onclick="openBookingModal()">Proceed to Book Appointment</button>
         </div>
 
     </div>
 
+    <footer>
+        <p>LM NAILED IT! NAIL SALON &bull; APPOINTMENTS ONLY &bull; TEL: 074 038 4030</p>
+    </footer>
+
     <!-- BOOKING MODAL -->
     <div class="modal" id="modalSlip">
         <div class="modal-content">
-            <h3 style="color: var(--gold-light); margin-top:0;">Complete Your Nail Appointment</h3>
+            <h3 style="color: var(--pink-deep); margin-top:0;">Complete Your Nail Appointment</h3>
             <div class="slip-box" id="slipText"></div>
             
             <label>Your Full Name / WhatsApp Number:</label>
@@ -537,17 +615,17 @@
             <label>Choose Payment Option:</label>
             <div class="payment-options">
                 <div class="payment-option-card">
-                    <input type="radio" id="payStore" name="paymentChoice" value="Pay when at salon" checked>
-                    <label for="payStore" style="display:inline; cursor:pointer; color:#fce4ec;">Pay at Salon</label>
+                    <input type="radio" id="payStore" name="paymentChoice" value="Pay in store" checked>
+                    <label for="payStore" style="display:inline; cursor:pointer;">Pay in store</label>
                 </div>
                 <div class="payment-option-card">
-                    <input type="radio" id="payNow" name="paymentChoice" value="Pay now">
-                    <label for="payNow" style="display:inline; cursor:pointer; color:#fce4ec;">Pay Now</label>
+                    <input type="radio" id="payNow" name="paymentChoice" value="Pay online">
+                    <label for="payNow" style="display:inline; cursor:pointer;">Pay online</label>
                 </div>
             </div>
 
-            <button class="liquid-btn" style="margin-top:15px; background: linear-gradient(135deg, rgba(212, 175, 55, 0.4), rgba(255, 105, 180, 0.4)); border-color: var(--gold); color:#fff;" onclick="finishOrder()">Confirm Booking & Send Slip</button>
-            <button class="liquid-btn" onclick="closeModal()" style="margin-top:10px; background: rgba(255, 105, 180, 0.2); border-color: var(--glass-border); color:#fce4ec;">Cancel</button>
+            <button class="liquid-btn" style="margin-top:15px; background: linear-gradient(135deg, var(--pink-primary), var(--pink-deep)); border-color: var(--gold); color:#fff;" onclick="finishOrder()">Confirm Booking & Send Slip</button>
+            <button class="liquid-btn" onclick="closeModal()" style="margin-top:10px; background: #fff; border-color: var(--gold); color: var(--pink-deep);">Cancel</button>
         </div>
     </div>
 
@@ -569,7 +647,7 @@
             const totalEl = document.getElementById('total');
 
             if (cart.length === 0) {
-                listEl.innerHTML = "No nail sets selected yet.";
+                listEl.innerHTML = "No nail sets selected yet. Choose your favorite design above to start.";
                 totalEl.innerText = "R0.00";
                 return;
             }
@@ -628,7 +706,2883 @@
                 return;
             }
 
-            alert(`Booking Confirmed for ${name}!\nDate: ${date} at ${time}\nPayment Preference: ${paymentChoice}\n\nPlease send your confirmation slip to LM Nailed It! at 074 038 4030 to lock in your slot.`);
+            alert(`Booking Confirmed for ${name}!\nDate: ${date} at ${time}\nPayment Preference: ${paymentChoice}\n\nPlease contact LM Nailed It! at 074 038 4030 to finalize your slot.`);
+            closeModal();
+            cart = [];
+            updateCart();
+            document.getElementById('clientName').value = '';
+            document.getElementById('appointmentDate').value = '';
+            document.getElementById('appointmentTime').value = '';
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LM Nailed It! | Luxury Nail Salon & Appointment Portal</title>
+    <style>
+        :root {
+            --pink-bg: #fff0f5;
+            --pink-soft: #ffe4e9;
+            --pink-primary: #ff69b4;
+            --pink-deep: #c71585;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-dark: #b8860b;
+            --glass-bg: rgba(255, 240, 245, 0.85);
+            --glass-border: rgba(212, 175, 55, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold) var(--pink-bg);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--pink-bg);
+            /* Immersive background using her exact salon flyer image with a soft pink/gold translucent wash */
+            background-image: linear-gradient(rgba(255, 240, 245, 0.90), rgba(255, 228, 233, 0.95)), url('image_6.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #4a2e35;
+            padding-bottom: 80px;
+        }
+
+        /* Top Navigation */
+        .site-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 2px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+        }
+
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--pink-deep));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--gold-dark);
+            cursor: pointer;
+        }
+
+        .nav-links span:hover {
+            color: var(--pink-primary);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 70px 20px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            text-transform: uppercase;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--pink-deep), var(--gold-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-section p {
+            font-size: 1.1rem;
+            color: #6d4c5c;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .hero-btn {
+            background: linear-gradient(135deg, var(--pink-primary), var(--pink-deep));
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: 14px;
+            font-weight: 800;
+            font-size: 1rem;
+            border: 2px solid var(--gold);
+            cursor: pointer;
+            box-shadow: 0 6px 25px rgba(255, 105, 180, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+        }
+
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            color: var(--pink-deep);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 12px;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            letter-spacing: 0.8px;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* Liquid Glass Card Container in Pink & Gold */
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px 0 rgba(212, 175, 55, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px 0 rgba(255, 105, 180, 0.3);
+        }
+
+        .card-img-container {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            background: #fff;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img-container img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .card h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.25rem;
+            color: var(--pink-deep);
+            font-weight: 700;
+        }
+
+        .desc {
+            font-size: 0.9rem;
+            color: #6d4c5c;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .price {
+            color: var(--gold-dark);
+            font-weight: 800;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .liquid-btn {
+            background: linear-gradient(135deg, #fff, var(--pink-soft));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--gold);
+            color: var(--pink-deep);
+            padding: 12px;
+            border-radius: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+            text-align: center;
+            width: 100%;
+            letter-spacing: 0.5px;
+        }
+
+        .liquid-btn:hover {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-color: var(--pink-deep);
+            color: #fff;
+            transform: scale(1.02);
+        }
+
+        /* Checkout Container */
+        .checkout-container {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            margin-top: 60px;
+            padding: 35px;
+            border-radius: 24px;
+            border: 2px solid var(--gold);
+            box-shadow: 0 15px 40px 0 rgba(212, 175, 55, 0.25);
+        }
+
+        .checkout-btn {
+            background: linear-gradient(135deg, var(--pink-primary), var(--pink-deep));
+            border: 1px solid var(--gold);
+            font-size: 1.2rem;
+            margin-top: 25px;
+            color: #fff;
+        }
+
+        .checkout-btn:hover {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #fff;
+        }
+
+        /* Modal Overlay */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(74, 46, 53, 0.85);
+            backdrop-filter: blur(16px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: #fff5f8;
+            backdrop-filter: blur(24px);
+            border: 2px solid var(--gold);
+            padding: 30px;
+            border-radius: 26px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.4);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .slip-box {
+            background: #ffffff;
+            border: 1px dashed var(--gold);
+            padding: 15px;
+            border-radius: 14px;
+            font-family: monospace;
+            color: var(--pink-deep);
+            font-size: 0.85rem;
+            margin: 15px 0;
+            white-space: pre-line;
+            line-height: 1.5;
+            max-height: 180px;
+            overflow-y: auto;
+        }
+
+        .modal-content label {
+            font-size: 0.9rem;
+            color: var(--pink-deep);
+            font-weight: 700;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 12px 0;
+            border-radius: 12px;
+            border: 1px solid var(--gold);
+            background: #fff;
+            color: #4a2e35;
+            box-sizing: border-box;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .modal-content input:focus {
+            border-color: var(--pink-primary);
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+        }
+
+        .payment-options {
+            display: flex;
+            gap: 15px;
+            margin: 10px 0 15px 0;
+        }
+
+        .payment-option-card {
+            flex: 1;
+            background: #fff;
+            border: 1px solid var(--gold);
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--pink-deep);
+        }
+
+        .payment-option-card input {
+            margin-right: 6px;
+            width: auto;
+            margin: 0 6px 0 0;
+        }
+
+        .cart-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            background: rgba(255, 105, 180, 0.08);
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--pink-deep);
+            font-weight: 600;
+        }
+
+        .remove-btn {
+            background: rgba(219, 39, 119, 0.2);
+            border: 1px solid var(--pink-primary);
+            color: var(--pink-deep);
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+
+        .remove-btn:hover {
+            background: var(--pink-primary);
+            color: #fff;
+        }
+
+        footer {
+            margin-top: 80px;
+            text-align: center;
+            color: var(--pink-deep);
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-top: 2px solid var(--gold);
+            padding-top: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <div class="site-nav">
+        <div class="nav-logo">LM NAILED IT!</div>
+        <div class="nav-links">
+            <span onclick="document.getElementById('services-grid').scrollIntoView({behavior: 'smooth'})">Services</span>
+            <span onclick="openBookingModal()">Book Appointment</span>
+            <span onclick="alert('Contact: 074 038 4030 | Appointments Only')">Tel: 074 038 4030</span>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <div class="hero-section">
+        <div class="hero-badge">✨ 10% OFF YOUR FIRST VISIT! ✨</div>
+        <h1>BEAUTIFUL NAILS. CONFIDENT YOU. LET'S NAIL IT!</h1>
+        <p>Premium nail services with precision, creativity & care. Your nails, your vibe. Book your appointment today.</p>
+        <button class="hero-btn" onclick="document.getElementById('services-grid').scrollIntoView({behavior: 'smooth'})">Book Now!</button>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <!-- SERVICES CATALOG WITH EMBEDDED REAL IMAGES -->
+        <h2 class="section-title" id="services-grid">Signature Nail Collections</h2>
+        <div class="grid">
+            
+            <!-- Item 1 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image.png" style="object-position: 50% 15%; transform: scale(2.2);" alt="Red & White Floral French">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Red & White Floral French</h3>
+                        <div class="desc">Stunning red tips accented with delicate hand-painted white floral art.</div>
+                    </div>
+                    <div>
+                        <div class="price">R250</div>
+                        <button class="liquid-btn" onclick="addItem('Red & White Floral French', 250)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_2.png" style="object-position: 50% 20%; transform: scale(2.2);" alt="Zebra & Red Spot Stilettos">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Zebra & Red Dot Stilettos</h3>
+                        <div class="desc">Daring stiletto shape featuring bold zebra tips, polka dots, and gold charms.</div>
+                    </div>
+                    <div>
+                        <div class="price">R300</div>
+                        <button class="liquid-btn" onclick="addItem('Zebra & Red Spot Stilettos', 300)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_3.png" style="object-position: 50% 25%; transform: scale(2.2);" alt="Soft Pink Almond Florals">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Soft Pink Almond Florals</h3>
+                        <div class="desc">Classic soft pink almond-shaped acrylics with raised white floral detailing.</div>
+                    </div>
+                    <div>
+                        <div class="price">R220</div>
+                        <button class="liquid-btn" onclick="addItem('Soft Pink Almond Florals', 220)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_4.png" style="object-position: 50% 20%; transform: scale(2.2);" alt="Pearl Accent White French">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Pearl Accent White French</h3>
+                        <div class="desc">Clean white French tips on a pink base enhanced with dainty micro-pearls.</div>
+                    </div>
+                    <div>
+                        <div class="price">R260</div>
+                        <button class="liquid-btn" onclick="addItem('Pearl Accent White French', 260)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_5.png" style="object-position: 50% 20%; transform: scale(2.2);" alt="Barbie Pink & Cow Print">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Barbie Pink & Cow Print</h3>
+                        <div class="desc">Vibrant pink gloss paired with trendy playful cow print nail art.</div>
+                    </div>
+                    <div>
+                        <div class="price">R280</div>
+                        <button class="liquid-btn" onclick="addItem('Barbie Pink & Cow Print', 280)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_7.png" style="object-position: 50% 20%; transform: scale(2.2);" alt="Red & Leopard Print Glam">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Red & Leopard Print Glam</h3>
+                        <div class="desc">Fiery red gloss combined with chic pink-and-black leopard accent nails.</div>
+                    </div>
+                    <div>
+                        <div class="price">R290</div>
+                        <button class="liquid-btn" onclick="addItem('Red & Leopard Print Glam', 290)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_8.png" style="object-position: 50% 20%; transform: scale(2.2);" alt="Pink Bows & Leopard French">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Pink Bows & Leopard French</h3>
+                        <div class="desc">Soft pink square nails featuring 3D bow sculptures and leopard print tips.</div>
+                    </div>
+                    <div>
+                        <div class="price">R320</div>
+                        <button class="liquid-btn" onclick="addItem('Pink Bows & Leopard French', 320)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 8 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_10.png" style="object-position: 50% 25%; transform: scale(2.2);" alt="Red Polka Dots & Bow Art">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Red Polka Dots & Bow Art</h3>
+                        <div class="desc">Charming rich red nails with white polka dot patterns and custom bow accents.</div>
+                    </div>
+                    <div>
+                        <div class="price">R270</div>
+                        <button class="liquid-btn" onclick="addItem('Red Polka Dots & Bow Art', 270)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- LIVE CART AND SUMMARY -->
+        <div class="checkout-container">
+            <h3 style="color: var(--pink-deep); margin-top:0; font-size: 1.4rem;">Your Booking Summary</h3>
+            <div id="item-list" style="color: #6d4c5c; margin: 20px 0; font-size: 1rem;">No nail sets selected yet. Choose your favorite design above to start.</div>
+            <hr style="border-color: rgba(212, 175, 55, 0.4); margin: 20px 0;">
+            <p style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:bold; margin-bottom:0; color: var(--pink-deep);">
+                <span>Total:</span> <span id="total" style="color: var(--gold-dark);">R0.00</span>
+            </p>
+            <button class="liquid-btn checkout-btn" onclick="openBookingModal()">Proceed to Book Appointment</button>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>LM NAILED IT! NAIL SALON &bull; APPOINTMENTS ONLY &bull; TEL: 074 038 4030</p>
+    </footer>
+
+    <!-- BOOKING MODAL -->
+    <div class="modal" id="modalSlip">
+        <div class="modal-content">
+            <h3 style="color: var(--pink-deep); margin-top:0;">Complete Your Nail Appointment</h3>
+            <div class="slip-box" id="slipText"></div>
+            
+            <label>Your Full Name / WhatsApp Number:</label>
+            <input type="text" id="clientName" placeholder="e.g. Jessica">
+
+            <label>Appointment Date:</label>
+            <input type="date" id="appointmentDate">
+
+            <label>Time Slot:</label>
+            <input type="time" id="appointmentTime">
+
+            <label>Choose Payment Option:</label>
+            <div class="payment-options">
+                <div class="payment-option-card">
+                    <input type="radio" id="payStore" name="paymentChoice" value="Pay in store" checked>
+                    <label for="payStore" style="display:inline; cursor:pointer;">Pay in store</label>
+                </div>
+                <div class="payment-option-card">
+                    <input type="radio" id="payNow" name="paymentChoice" value="Pay online">
+                    <label for="payNow" style="display:inline; cursor:pointer;">Pay online</label>
+                </div>
+            </div>
+
+            <button class="liquid-btn" style="margin-top:15px; background: linear-gradient(135deg, var(--pink-primary), var(--pink-deep)); border-color: var(--gold); color:#fff;" onclick="finishOrder()">Confirm Booking & Send Slip</button>
+            <button class="liquid-btn" onclick="closeModal()" style="margin-top:10px; background: #fff; border-color: var(--gold); color: var(--pink-deep);">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addItem(name, price) {
+            cart.push({ name, price });
+            updateCart();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function updateCart() {
+            const listEl = document.getElementById('item-list');
+            const totalEl = document.getElementById('total');
+
+            if (cart.length === 0) {
+                listEl.innerHTML = "No nail sets selected yet. Choose your favorite design above to start.";
+                totalEl.innerText = "R0.00";
+                return;
+            }
+
+            let html = "";
+            let total = 0;
+            cart.forEach((item, index) => {
+                html += `<div class="cart-item-row">
+                    <span>${item.name} - R${item.price}</span>
+                    <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+                </div>`;
+                total += item.price;
+            });
+
+            listEl.innerHTML = html;
+            totalEl.innerText = `R${total}`;
+        }
+
+        function openBookingModal() {
+            if (cart.length === 0) {
+                alert("Please select at least one nail design first!");
+                return;
+            }
+
+            let total = cart.reduce((sum, item) => sum + item.price, 0);
+            let timeStr = new Date().toLocaleTimeString();
+
+            let slip = `===============================\n`;
+            slip += `     LM NAILED IT! APPOINTMENT\n`;
+            slip += `     Appointments Only Service\n`;
+            slip += `===============================\n`;
+            slip += `Generated: ${timeStr}\n`;
+            cart.forEach(item => {
+                slip += `> ${item.name} ... R${item.price}\n`;
+            });
+            slip += `-------------------------------\n`;
+            slip += `TOTAL DUE: R${total}\n`;
+            slip += `===============================\n`;
+
+            document.getElementById('slipText').innerText = slip;
+            document.getElementById('modalSlip').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modalSlip').style.display = 'none';
+        }
+
+        function finishOrder() {
+            let name = document.getElementById('clientName').value;
+            let date = document.getElementById('appointmentDate').value;
+            let time = document.getElementById('appointmentTime').value;
+            let paymentChoice = document.querySelector('input[name="paymentChoice"]:checked').value;
+
+            if (!name || !date || !time) {
+                alert("Please enter your name, appointment date, and time slot!");
+                return;
+            }
+
+            alert(`Booking Confirmed for ${name}!\nDate: ${date} at ${time}\nPayment Preference: ${paymentChoice}\n\nPlease contact LM Nailed It! at 074 038 4030 to finalize your slot.`);
+            closeModal();
+            cart = [];
+            updateCart();
+            document.getElementById('clientName').value = '';
+            document.getElementById('appointmentDate').value = '';
+            document.getElementById('appointmentTime').value = '';
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LM Nailed It! | Luxury Nail Salon & Appointment Portal</title>
+    <style>
+        :root {
+            --pink-bg: #fff0f5;
+            --pink-soft: #ffe4e9;
+            --pink-primary: #ff69b4;
+            --pink-deep: #c71585;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-dark: #b8860b;
+            --glass-bg: rgba(255, 240, 245, 0.85);
+            --glass-border: rgba(212, 175, 55, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold) var(--pink-bg);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--pink-bg);
+            /* Immersive background using her exact salon flyer image with a soft pink/gold translucent wash */
+            background-image: linear-gradient(rgba(255, 240, 245, 0.90), rgba(255, 228, 233, 0.95)), url('image_6.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #4a2e35;
+            padding-bottom: 80px;
+        }
+
+        /* Top Navigation */
+        .site-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 2px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+        }
+
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--pink-deep));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--gold-dark);
+            cursor: pointer;
+        }
+
+        .nav-links span:hover {
+            color: var(--pink-primary);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 70px 20px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            text-transform: uppercase;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--pink-deep), var(--gold-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-section p {
+            font-size: 1.1rem;
+            color: #6d4c5c;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .hero-btn {
+            background: linear-gradient(135deg, var(--pink-primary), var(--pink-deep));
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: 14px;
+            font-weight: 800;
+            font-size: 1rem;
+            border: 2px solid var(--gold);
+            cursor: pointer;
+            box-shadow: 0 6px 25px rgba(255, 105, 180, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+        }
+
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            color: var(--pink-deep);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 12px;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            letter-spacing: 0.8px;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* Liquid Glass Card Container in Pink & Gold */
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px 0 rgba(212, 175, 55, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px 0 rgba(255, 105, 180, 0.3);
+        }
+
+        .card-img-container {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            background: #fff;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img-container img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .card h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.25rem;
+            color: var(--pink-deep);
+            font-weight: 700;
+        }
+
+        .desc {
+            font-size: 0.9rem;
+            color: #6d4c5c;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .price {
+            color: var(--gold-dark);
+            font-weight: 800;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .liquid-btn {
+            background: linear-gradient(135deg, #fff, var(--pink-soft));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--gold);
+            color: var(--pink-deep);
+            padding: 12px;
+            border-radius: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+            text-align: center;
+            width: 100%;
+            letter-spacing: 0.5px;
+        }
+
+        .liquid-btn:hover {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-color: var(--pink-deep);
+            color: #fff;
+            transform: scale(1.02);
+        }
+
+        /* Checkout Container */
+        .checkout-container {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            margin-top: 60px;
+            padding: 35px;
+            border-radius: 24px;
+            border: 2px solid var(--gold);
+            box-shadow: 0 15px 40px 0 rgba(212, 175, 55, 0.25);
+        }
+
+        .checkout-btn {
+            background: linear-gradient(135deg, var(--pink-primary), var(--pink-deep));
+            border: 1px solid var(--gold);
+            font-size: 1.2rem;
+            margin-top: 25px;
+            color: #fff;
+        }
+
+        .checkout-btn:hover {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #fff;
+        }
+
+        /* Modal Overlay */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(74, 46, 53, 0.85);
+            backdrop-filter: blur(16px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: #fff5f8;
+            backdrop-filter: blur(24px);
+            border: 2px solid var(--gold);
+            padding: 30px;
+            border-radius: 26px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.4);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .slip-box {
+            background: #ffffff;
+            border: 1px dashed var(--gold);
+            padding: 15px;
+            border-radius: 14px;
+            font-family: monospace;
+            color: var(--pink-deep);
+            font-size: 0.85rem;
+            margin: 15px 0;
+            white-space: pre-line;
+            line-height: 1.5;
+            max-height: 180px;
+            overflow-y: auto;
+        }
+
+        .modal-content label {
+            font-size: 0.9rem;
+            color: var(--pink-deep);
+            font-weight: 700;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 12px 0;
+            border-radius: 12px;
+            border: 1px solid var(--gold);
+            background: #fff;
+            color: #4a2e35;
+            box-sizing: border-box;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .modal-content input:focus {
+            border-color: var(--pink-primary);
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+        }
+
+        .payment-options {
+            display: flex;
+            gap: 15px;
+            margin: 10px 0 15px 0;
+        }
+
+        .payment-option-card {
+            flex: 1;
+            background: #fff;
+            border: 1px solid var(--gold);
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--pink-deep);
+        }
+
+        .payment-option-card input {
+            margin-right: 6px;
+            width: auto;
+            margin: 0 6px 0 0;
+        }
+
+        .cart-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            background: rgba(255, 105, 180, 0.08);
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--pink-deep);
+            font-weight: 600;
+        }
+
+        .remove-btn {
+            background: rgba(219, 39, 119, 0.2);
+            border: 1px solid var(--pink-primary);
+            color: var(--pink-deep);
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+
+        .remove-btn:hover {
+            background: var(--pink-primary);
+            color: #fff;
+        }
+
+        footer {
+            margin-top: 80px;
+            text-align: center;
+            color: var(--pink-deep);
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-top: 2px solid var(--gold);
+            padding-top: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <div class="site-nav">
+        <div class="nav-logo">LM NAILED IT!</div>
+        <div class="nav-links">
+            <span onclick="document.getElementById('services-grid').scrollIntoView({behavior: 'smooth'})">Services</span>
+            <span onclick="openBookingModal()">Book Appointment</span>
+            <span onclick="alert('Contact: 074 038 4030 | Appointments Only')">Tel: 074 038 4030</span>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <div class="hero-section">
+        <div class="hero-badge">✨ 10% OFF YOUR FIRST VISIT! ✨</div>
+        <h1>BEAUTIFUL NAILS. CONFIDENT YOU. LET'S NAIL IT!</h1>
+        <p>Premium nail services with precision, creativity & care. Your nails, your vibe. Book your appointment today.</p>
+        <button class="hero-btn" onclick="document.getElementById('services-grid').scrollIntoView({behavior: 'smooth'})">Book Now!</button>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <!-- SERVICES CATALOG WITH EMBEDDED REAL IMAGES -->
+        <h2 class="section-title" id="services-grid">Signature Nail Collections</h2>
+        <div class="grid">
+            
+            <!-- Item 1 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image.png" style="object-position: 50% 15%; transform: scale(2.2);" alt="Red & White Floral French">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Red & White Floral French</h3>
+                        <div class="desc">Stunning red tips accented with delicate hand-painted white floral art.</div>
+                    </div>
+                    <div>
+                        <div class="price">R250</div>
+                        <button class="liquid-btn" onclick="addItem('Red & White Floral French', 250)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_2.png" style="object-position: 50% 20%; transform: scale(2.2);" alt="Zebra & Red Spot Stilettos">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Zebra & Red Dot Stilettos</h3>
+                        <div class="desc">Daring stiletto shape featuring bold zebra tips, polka dots, and gold charms.</div>
+                    </div>
+                    <div>
+                        <div class="price">R300</div>
+                        <button class="liquid-btn" onclick="addItem('Zebra & Red Spot Stilettos', 300)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_3.png" style="object-position: 50% 25%; transform: scale(2.2);" alt="Soft Pink Almond Florals">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Soft Pink Almond Florals</h3>
+                        <div class="desc">Classic soft pink almond-shaped acrylics with raised white floral detailing.</div>
+                    </div>
+                    <div>
+                        <div class="price">R220</div>
+                        <button class="liquid-btn" onclick="addItem('Soft Pink Almond Florals', 220)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_4.png" style="object-position: 50% 20%; transform: scale(2.2);" alt="Pearl Accent White French">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Pearl Accent White French</h3>
+                        <div class="desc">Clean white French tips on a pink base enhanced with dainty micro-pearls.</div>
+                    </div>
+                    <div>
+                        <div class="price">R260</div>
+                        <button class="liquid-btn" onclick="addItem('Pearl Accent White French', 260)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_5.png" style="object-position: 50% 20%; transform: scale(2.2);" alt="Barbie Pink & Cow Print">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Barbie Pink & Cow Print</h3>
+                        <div class="desc">Vibrant pink gloss paired with trendy playful cow print nail art.</div>
+                    </div>
+                    <div>
+                        <div class="price">R280</div>
+                        <button class="liquid-btn" onclick="addItem('Barbie Pink & Cow Print', 280)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_7.png" style="object-position: 50% 20%; transform: scale(2.2);" alt="Red & Leopard Print Glam">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Red & Leopard Print Glam</h3>
+                        <div class="desc">Fiery red gloss combined with chic pink-and-black leopard accent nails.</div>
+                    </div>
+                    <div>
+                        <div class="price">R290</div>
+                        <button class="liquid-btn" onclick="addItem('Red & Leopard Print Glam', 290)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_8.png" style="object-position: 50% 20%; transform: scale(2.2);" alt="Pink Bows & Leopard French">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Pink Bows & Leopard French</h3>
+                        <div class="desc">Soft pink square nails featuring 3D bow sculptures and leopard print tips.</div>
+                    </div>
+                    <div>
+                        <div class="price">R320</div>
+                        <button class="liquid-btn" onclick="addItem('Pink Bows & Leopard French', 320)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 8 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_10.png" style="object-position: 50% 25%; transform: scale(2.2);" alt="Red Polka Dots & Bow Art">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Red Polka Dots & Bow Art</h3>
+                        <div class="desc">Charming rich red nails with white polka dot patterns and custom bow accents.</div>
+                    </div>
+                    <div>
+                        <div class="price">R270</div>
+                        <button class="liquid-btn" onclick="addItem('Red Polka Dots & Bow Art', 270)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- LIVE CART AND SUMMARY -->
+        <div class="checkout-container">
+            <h3 style="color: var(--pink-deep); margin-top:0; font-size: 1.4rem;">Your Booking Summary</h3>
+            <div id="item-list" style="color: #6d4c5c; margin: 20px 0; font-size: 1rem;">No nail sets selected yet. Choose your favorite design above to start.</div>
+            <hr style="border-color: rgba(212, 175, 55, 0.4); margin: 20px 0;">
+            <p style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:bold; margin-bottom:0; color: var(--pink-deep);">
+                <span>Total:</span> <span id="total" style="color: var(--gold-dark);">R0.00</span>
+            </p>
+            <button class="liquid-btn checkout-btn" onclick="openBookingModal()">Proceed to Book Appointment</button>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>LM NAILED IT! NAIL SALON &bull; APPOINTMENTS ONLY &bull; TEL: 074 038 4030</p>
+    </footer>
+
+    <!-- BOOKING MODAL -->
+    <div class="modal" id="modalSlip">
+        <div class="modal-content">
+            <h3 style="color: var(--pink-deep); margin-top:0;">Complete Your Nail Appointment</h3>
+            <div class="slip-box" id="slipText"></div>
+            
+            <label>Your Full Name / WhatsApp Number:</label>
+            <input type="text" id="clientName" placeholder="e.g. Jessica">
+
+            <label>Appointment Date:</label>
+            <input type="date" id="appointmentDate">
+
+            <label>Time Slot:</label>
+            <input type="time" id="appointmentTime">
+
+            <label>Choose Payment Option:</label>
+            <div class="payment-options">
+                <div class="payment-option-card">
+                    <input type="radio" id="payStore" name="paymentChoice" value="Pay in store" checked>
+                    <label for="payStore" style="display:inline; cursor:pointer;">Pay in store</label>
+                </div>
+                <div class="payment-option-card">
+                    <input type="radio" id="payNow" name="paymentChoice" value="Pay online">
+                    <label for="payNow" style="display:inline; cursor:pointer;">Pay online</label>
+                </div>
+            </div>
+
+            <button class="liquid-btn" style="margin-top:15px; background: linear-gradient(135deg, var(--pink-primary), var(--pink-deep)); border-color: var(--gold); color:#fff;" onclick="finishOrder()">Confirm Booking & Send Slip</button>
+            <button class="liquid-btn" onclick="closeModal()" style="margin-top:10px; background: #fff; border-color: var(--gold); color: var(--pink-deep);">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addItem(name, price) {
+            cart.push({ name, price });
+            updateCart();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function updateCart() {
+            const listEl = document.getElementById('item-list');
+            const totalEl = document.getElementById('total');
+
+            if (cart.length === 0) {
+                listEl.innerHTML = "No nail sets selected yet. Choose your favorite design above to start.";
+                totalEl.innerText = "R0.00";
+                return;
+            }
+
+            let html = "";
+            let total = 0;
+            cart.forEach((item, index) => {
+                html += `<div class="cart-item-row">
+                    <span>${item.name} - R${item.price}</span>
+                    <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+                </div>`;
+                total += item.price;
+            });
+
+            listEl.innerHTML = html;
+            totalEl.innerText = `R${total}`;
+        }
+
+        function openBookingModal() {
+            if (cart.length === 0) {
+                alert("Please select at least one nail design first!");
+                return;
+            }
+
+            let total = cart.reduce((sum, item) => sum + item.price, 0);
+            let timeStr = new Date().toLocaleTimeString();
+
+            let slip = `===============================\n`;
+            slip += `     LM NAILED IT! APPOINTMENT\n`;
+            slip += `     Appointments Only Service\n`;
+            slip += `===============================\n`;
+            slip += `Generated: ${timeStr}\n`;
+            cart.forEach(item => {
+                slip += `> ${item.name} ... R${item.price}\n`;
+            });
+            slip += `-------------------------------\n`;
+            slip += `TOTAL DUE: R${total}\n`;
+            slip += `===============================\n`;
+
+            document.getElementById('slipText').innerText = slip;
+            document.getElementById('modalSlip').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modalSlip').style.display = 'none';
+        }
+
+        function finishOrder() {
+            let name = document.getElementById('clientName').value;
+            let date = document.getElementById('appointmentDate').value;
+            let time = document.getElementById('appointmentTime').value;
+            let paymentChoice = document.querySelector('input[name="paymentChoice"]:checked').value;
+
+            if (!name || !date || !time) {
+                alert("Please enter your name, appointment date, and time slot!");
+                return;
+            }
+
+            alert(`Booking Confirmed for ${name}!\nDate: ${date} at ${time}\nPayment Preference: ${paymentChoice}\n\nPlease contact LM Nailed It! at 074 038 4030 to finalize your slot.`);
+            closeModal();
+            cart = [];
+            updateCart();
+            document.getElementById('clientName').value = '';
+            document.getElementById('appointmentDate').value = '';
+            document.getElementById('appointmentTime').value = '';
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LM Nailed It! | Luxury Nail Salon & Appointment Portal</title>
+    <style>
+        :root {
+            --pink-bg: #fff0f5;
+            --pink-soft: #ffe4e9;
+            --pink-primary: #ff69b4;
+            --pink-deep: #c71585;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-dark: #b8860b;
+            --glass-bg: rgba(255, 240, 245, 0.85);
+            --glass-border: rgba(212, 175, 55, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold) var(--pink-bg);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--pink-bg);
+            /* Immersive background using her exact salon flyer image with a soft pink/gold translucent wash */
+            background-image: linear-gradient(rgba(255, 240, 245, 0.90), rgba(255, 228, 233, 0.95)), url('image_6.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #4a2e35;
+            padding-bottom: 80px;
+        }
+
+        /* Top Navigation */
+        .site-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 2px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+        }
+
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--pink-deep));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--gold-dark);
+            cursor: pointer;
+        }
+
+        .nav-links span:hover {
+            color: var(--pink-primary);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 70px 20px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            text-transform: uppercase;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--pink-deep), var(--gold-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-section p {
+            font-size: 1.1rem;
+            color: #6d4c5c;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .hero-btn {
+            background: linear-gradient(135deg, var(--pink-primary), var(--pink-deep));
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: 14px;
+            font-weight: 800;
+            font-size: 1rem;
+            border: 2px solid var(--gold);
+            cursor: pointer;
+            box-shadow: 0 6px 25px rgba(255, 105, 180, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+        }
+
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            color: var(--pink-deep);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 12px;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            letter-spacing: 0.8px;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* Liquid Glass Card Container in Pink & Gold */
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px 0 rgba(212, 175, 55, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px 0 rgba(255, 105, 180, 0.3);
+        }
+
+        .card-img-container {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            background: #fff;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img-container img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .card h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.25rem;
+            color: var(--pink-deep);
+            font-weight: 700;
+        }
+
+        .desc {
+            font-size: 0.9rem;
+            color: #6d4c5c;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .price {
+            color: var(--gold-dark);
+            font-weight: 800;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .liquid-btn {
+            background: linear-gradient(135deg, #fff, var(--pink-soft));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--gold);
+            color: var(--pink-deep);
+            padding: 12px;
+            border-radius: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+            text-align: center;
+            width: 100%;
+            letter-spacing: 0.5px;
+        }
+
+        .liquid-btn:hover {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-color: var(--pink-deep);
+            color: #fff;
+            transform: scale(1.02);
+        }
+
+        /* Checkout Container */
+        .checkout-container {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            margin-top: 60px;
+            padding: 35px;
+            border-radius: 24px;
+            border: 2px solid var(--gold);
+            box-shadow: 0 15px 40px 0 rgba(212, 175, 55, 0.25);
+        }
+
+        .checkout-btn {
+            background: linear-gradient(135deg, var(--pink-primary), var(--pink-deep));
+            border: 1px solid var(--gold);
+            font-size: 1.2rem;
+            margin-top: 25px;
+            color: #fff;
+        }
+
+        .checkout-btn:hover {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #fff;
+        }
+
+        /* Modal Overlay */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(74, 46, 53, 0.85);
+            backdrop-filter: blur(16px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: #fff5f8;
+            backdrop-filter: blur(24px);
+            border: 2px solid var(--gold);
+            padding: 30px;
+            border-radius: 26px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.4);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .slip-box {
+            background: #ffffff;
+            border: 1px dashed var(--gold);
+            padding: 15px;
+            border-radius: 14px;
+            font-family: monospace;
+            color: var(--pink-deep);
+            font-size: 0.85rem;
+            margin: 15px 0;
+            white-space: pre-line;
+            line-height: 1.5;
+            max-height: 180px;
+            overflow-y: auto;
+        }
+
+        .modal-content label {
+            font-size: 0.9rem;
+            color: var(--pink-deep);
+            font-weight: 700;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 12px 0;
+            border-radius: 12px;
+            border: 1px solid var(--gold);
+            background: #fff;
+            color: #4a2e35;
+            box-sizing: border-box;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .modal-content input:focus {
+            border-color: var(--pink-primary);
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+        }
+
+        .payment-options {
+            display: flex;
+            gap: 15px;
+            margin: 10px 0 15px 0;
+        }
+
+        .payment-option-card {
+            flex: 1;
+            background: #fff;
+            border: 1px solid var(--gold);
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--pink-deep);
+        }
+
+        .payment-option-card input {
+            margin-right: 6px;
+            width: auto;
+            margin: 0 6px 0 0;
+        }
+
+        .cart-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            background: rgba(255, 105, 180, 0.08);
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--pink-deep);
+            font-weight: 600;
+        }
+
+        .remove-btn {
+            background: rgba(219, 39, 119, 0.2);
+            border: 1px solid var(--pink-primary);
+            color: var(--pink-deep);
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+
+        .remove-btn:hover {
+            background: var(--pink-primary);
+            color: #fff;
+        }
+
+        footer {
+            margin-top: 80px;
+            text-align: center;
+            color: var(--pink-deep);
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-top: 2px solid var(--gold);
+            padding-top: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <div class="site-nav">
+        <div class="nav-logo">LM NAILED IT!</div>
+        <div class="nav-links">
+            <span onclick="document.getElementById('services-grid').scrollIntoView({behavior: 'smooth'})">Services</span>
+            <span onclick="openBookingModal()">Book Appointment</span>
+            <span onclick="alert('Contact: 074 038 4030 | Appointments Only')">Tel: 074 038 4030</span>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <div class="hero-section">
+        <div class="hero-badge">✨ 10% OFF YOUR FIRST VISIT! ✨</div>
+        <h1>BEAUTIFUL NAILS. CONFIDENT YOU. LET'S NAIL IT!</h1>
+        <p>Premium nail services with precision, creativity & care. Your nails, your vibe. Book your appointment today.</p>
+        <button class="hero-btn" onclick="document.getElementById('services-grid').scrollIntoView({behavior: 'smooth'})">Book Now!</button>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <!-- SERVICES CATALOG WITH EMBEDDED REAL IMAGES -->
+        <h2 class="section-title" id="services-grid">Signature Nail Collections</h2>
+        <div class="grid">
+            
+            <!-- Item 1 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image.png" style="object-position: 50% 15%; transform: scale(2.2);" alt="Red & White Floral French">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Red & White Floral French</h3>
+                        <div class="desc">Stunning red tips accented with delicate hand-painted white floral art.</div>
+                    </div>
+                    <div>
+                        <div class="price">R250</div>
+                        <button class="liquid-btn" onclick="addItem('Red & White Floral French', 250)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_2.png" style="object-position: 50% 20%; transform: scale(2.2);" alt="Zebra & Red Spot Stilettos">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Zebra & Red Dot Stilettos</h3>
+                        <div class="desc">Daring stiletto shape featuring bold zebra tips, polka dots, and gold charms.</div>
+                    </div>
+                    <div>
+                        <div class="price">R300</div>
+                        <button class="liquid-btn" onclick="addItem('Zebra & Red Spot Stilettos', 300)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_3.png" style="object-position: 50% 25%; transform: scale(2.2);" alt="Soft Pink Almond Florals">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Soft Pink Almond Florals</h3>
+                        <div class="desc">Classic soft pink almond-shaped acrylics with raised white floral detailing.</div>
+                    </div>
+                    <div>
+                        <div class="price">R220</div>
+                        <button class="liquid-btn" onclick="addItem('Soft Pink Almond Florals', 220)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_4.png" style="object-position: 50% 20%; transform: scale(2.2);" alt="Pearl Accent White French">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Pearl Accent White French</h3>
+                        <div class="desc">Clean white French tips on a pink base enhanced with dainty micro-pearls.</div>
+                    </div>
+                    <div>
+                        <div class="price">R260</div>
+                        <button class="liquid-btn" onclick="addItem('Pearl Accent White French', 260)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_5.png" style="object-position: 50% 20%; transform: scale(2.2);" alt="Barbie Pink & Cow Print">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Barbie Pink & Cow Print</h3>
+                        <div class="desc">Vibrant pink gloss paired with trendy playful cow print nail art.</div>
+                    </div>
+                    <div>
+                        <div class="price">R280</div>
+                        <button class="liquid-btn" onclick="addItem('Barbie Pink & Cow Print', 280)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_7.png" style="object-position: 50% 20%; transform: scale(2.2);" alt="Red & Leopard Print Glam">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Red & Leopard Print Glam</h3>
+                        <div class="desc">Fiery red gloss combined with chic pink-and-black leopard accent nails.</div>
+                    </div>
+                    <div>
+                        <div class="price">R290</div>
+                        <button class="liquid-btn" onclick="addItem('Red & Leopard Print Glam', 290)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_8.png" style="object-position: 50% 20%; transform: scale(2.2);" alt="Pink Bows & Leopard French">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Pink Bows & Leopard French</h3>
+                        <div class="desc">Soft pink square nails featuring 3D bow sculptures and leopard print tips.</div>
+                    </div>
+                    <div>
+                        <div class="price">R320</div>
+                        <button class="liquid-btn" onclick="addItem('Pink Bows & Leopard French', 320)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 8 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_10.png" style="object-position: 50% 25%; transform: scale(2.2);" alt="Red Polka Dots & Bow Art">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Red Polka Dots & Bow Art</h3>
+                        <div class="desc">Charming rich red nails with white polka dot patterns and custom bow accents.</div>
+                    </div>
+                    <div>
+                        <div class="price">R270</div>
+                        <button class="liquid-btn" onclick="addItem('Red Polka Dots & Bow Art', 270)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- LIVE CART AND SUMMARY -->
+        <div class="checkout-container">
+            <h3 style="color: var(--pink-deep); margin-top:0; font-size: 1.4rem;">Your Booking Summary</h3>
+            <div id="item-list" style="color: #6d4c5c; margin: 20px 0; font-size: 1rem;">No nail sets selected yet. Choose your favorite design above to start.</div>
+            <hr style="border-color: rgba(212, 175, 55, 0.4); margin: 20px 0;">
+            <p style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:bold; margin-bottom:0; color: var(--pink-deep);">
+                <span>Total:</span> <span id="total" style="color: var(--gold-dark);">R0.00</span>
+            </p>
+            <button class="liquid-btn checkout-btn" onclick="openBookingModal()">Proceed to Book Appointment</button>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>LM NAILED IT! NAIL SALON &bull; APPOINTMENTS ONLY &bull; TEL: 074 038 4030</p>
+    </footer>
+
+    <!-- BOOKING MODAL -->
+    <div class="modal" id="modalSlip">
+        <div class="modal-content">
+            <h3 style="color: var(--pink-deep); margin-top:0;">Complete Your Nail Appointment</h3>
+            <div class="slip-box" id="slipText"></div>
+            
+            <label>Your Full Name / WhatsApp Number:</label>
+            <input type="text" id="clientName" placeholder="e.g. Jessica">
+
+            <label>Appointment Date:</label>
+            <input type="date" id="appointmentDate">
+
+            <label>Time Slot:</label>
+            <input type="time" id="appointmentTime">
+
+            <label>Choose Payment Option:</label>
+            <div class="payment-options">
+                <div class="payment-option-card">
+                    <input type="radio" id="payStore" name="paymentChoice" value="Pay in store" checked>
+                    <label for="payStore" style="display:inline; cursor:pointer;">Pay in store</label>
+                </div>
+                <div class="payment-option-card">
+                    <input type="radio" id="payNow" name="paymentChoice" value="Pay online">
+                    <label for="payNow" style="display:inline; cursor:pointer;">Pay online</label>
+                </div>
+            </div>
+
+            <button class="liquid-btn" style="margin-top:15px; background: linear-gradient(135deg, var(--pink-primary), var(--pink-deep)); border-color: var(--gold); color:#fff;" onclick="finishOrder()">Confirm Booking & Send Slip</button>
+            <button class="liquid-btn" onclick="closeModal()" style="margin-top:10px; background: #fff; border-color: var(--gold); color: var(--pink-deep);">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addItem(name, price) {
+            cart.push({ name, price });
+            updateCart();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function updateCart() {
+            const listEl = document.getElementById('item-list');
+            const totalEl = document.getElementById('total');
+
+            if (cart.length === 0) {
+                listEl.innerHTML = "No nail sets selected yet. Choose your favorite design above to start.";
+                totalEl.innerText = "R0.00";
+                return;
+            }
+
+            let html = "";
+            let total = 0;
+            cart.forEach((item, index) => {
+                html += `<div class="cart-item-row">
+                    <span>${item.name} - R${item.price}</span>
+                    <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+                </div>`;
+                total += item.price;
+            });
+
+            listEl.innerHTML = html;
+            totalEl.innerText = `R${total}`;
+        }
+
+        function openBookingModal() {
+            if (cart.length === 0) {
+                alert("Please select at least one nail design first!");
+                return;
+            }
+
+            let total = cart.reduce((sum, item) => sum + item.price, 0);
+            let timeStr = new Date().toLocaleTimeString();
+
+            let slip = `===============================\n`;
+            slip += `     LM NAILED IT! APPOINTMENT\n`;
+            slip += `     Appointments Only Service\n`;
+            slip += `===============================\n`;
+            slip += `Generated: ${timeStr}\n`;
+            cart.forEach(item => {
+                slip += `> ${item.name} ... R${item.price}\n`;
+            });
+            slip += `-------------------------------\n`;
+            slip += `TOTAL DUE: R${total}\n`;
+            slip += `===============================\n`;
+
+            document.getElementById('slipText').innerText = slip;
+            document.getElementById('modalSlip').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modalSlip').style.display = 'none';
+        }
+
+        function finishOrder() {
+            let name = document.getElementById('clientName').value;
+            let date = document.getElementById('appointmentDate').value;
+            let time = document.getElementById('appointmentTime').value;
+            let paymentChoice = document.querySelector('input[name="paymentChoice"]:checked').value;
+
+            if (!name || !date || !time) {
+                alert("Please enter your name, appointment date, and time slot!");
+                return;
+            }
+
+            alert(`Booking Confirmed for ${name}!\nDate: ${date} at ${time}\nPayment Preference: ${paymentChoice}\n\nPlease contact LM Nailed It! at 074 038 4030 to finalize your slot.`);
+            closeModal();
+            cart = [];
+            updateCart();
+            document.getElementById('clientName').value = '';
+            document.getElementById('appointmentDate').value = '';
+            document.getElementById('appointmentTime').value = '';
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LM Nailed It! | Luxury Nail Salon & Appointment Portal</title>
+    <style>
+        :root {
+            --pink-bg: #fff0f5;
+            --pink-soft: #ffe4e9;
+            --pink-primary: #ff69b4;
+            --pink-deep: #c71585;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-dark: #b8860b;
+            --glass-bg: rgba(255, 240, 245, 0.85);
+            --glass-border: rgba(212, 175, 55, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold) var(--pink-bg);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--pink-bg);
+            /* Immersive background using her exact salon flyer image with a soft pink/gold translucent wash */
+            background-image: linear-gradient(rgba(255, 240, 245, 0.90), rgba(255, 228, 233, 0.95)), url('image_6.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #4a2e35;
+            padding-bottom: 80px;
+        }
+
+        /* Top Navigation */
+        .site-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 2px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+        }
+
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--pink-deep));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--gold-dark);
+            cursor: pointer;
+        }
+
+        .nav-links span:hover {
+            color: var(--pink-primary);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 70px 20px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            text-transform: uppercase;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--pink-deep), var(--gold-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-section p {
+            font-size: 1.1rem;
+            color: #6d4c5c;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .hero-btn {
+            background: linear-gradient(135deg, var(--pink-primary), var(--pink-deep));
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: 14px;
+            font-weight: 800;
+            font-size: 1rem;
+            border: 2px solid var(--gold);
+            cursor: pointer;
+            box-shadow: 0 6px 25px rgba(255, 105, 180, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+        }
+
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            color: var(--pink-deep);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 12px;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            letter-spacing: 0.8px;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* Liquid Glass Card Container in Pink & Gold */
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px 0 rgba(212, 175, 55, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px 0 rgba(255, 105, 180, 0.3);
+        }
+
+        .card-img-container {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+            background: #fff;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img-container img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .card h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.25rem;
+            color: var(--pink-deep);
+            font-weight: 700;
+        }
+
+        .desc {
+            font-size: 0.9rem;
+            color: #6d4c5c;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .price {
+            color: var(--gold-dark);
+            font-weight: 800;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .liquid-btn {
+            background: linear-gradient(135deg, #fff, var(--pink-soft));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--gold);
+            color: var(--pink-deep);
+            padding: 12px;
+            border-radius: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+            text-align: center;
+            width: 100%;
+            letter-spacing: 0.5px;
+        }
+
+        .liquid-btn:hover {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-color: var(--pink-deep);
+            color: #fff;
+            transform: scale(1.02);
+        }
+
+        /* Checkout Container */
+        .checkout-container {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            margin-top: 60px;
+            padding: 35px;
+            border-radius: 24px;
+            border: 2px solid var(--gold);
+            box-shadow: 0 15px 40px 0 rgba(212, 175, 55, 0.25);
+        }
+
+        .checkout-btn {
+            background: linear-gradient(135deg, var(--pink-primary), var(--pink-deep));
+            border: 1px solid var(--gold);
+            font-size: 1.2rem;
+            margin-top: 25px;
+            color: #fff;
+        }
+
+        .checkout-btn:hover {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #fff;
+        }
+
+        /* Modal Overlay */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(74, 46, 53, 0.85);
+            backdrop-filter: blur(16px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: #fff5f8;
+            backdrop-filter: blur(24px);
+            border: 2px solid var(--gold);
+            padding: 30px;
+            border-radius: 26px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.4);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .slip-box {
+            background: #ffffff;
+            border: 1px dashed var(--gold);
+            padding: 15px;
+            border-radius: 14px;
+            font-family: monospace;
+            color: var(--pink-deep);
+            font-size: 0.85rem;
+            margin: 15px 0;
+            white-space: pre-line;
+            line-height: 1.5;
+            max-height: 180px;
+            overflow-y: auto;
+        }
+
+        .modal-content label {
+            font-size: 0.9rem;
+            color: var(--pink-deep);
+            font-weight: 700;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 12px 0;
+            border-radius: 12px;
+            border: 1px solid var(--gold);
+            background: #fff;
+            color: #4a2e35;
+            box-sizing: border-box;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .modal-content input:focus {
+            border-color: var(--pink-primary);
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+        }
+
+        .payment-options {
+            display: flex;
+            gap: 15px;
+            margin: 10px 0 15px 0;
+        }
+
+        .payment-option-card {
+            flex: 1;
+            background: #fff;
+            border: 1px solid var(--gold);
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--pink-deep);
+        }
+
+        .payment-option-card input {
+            margin-right: 6px;
+            width: auto;
+            margin: 0 6px 0 0;
+        }
+
+        .cart-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            background: rgba(255, 105, 180, 0.08);
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--pink-deep);
+            font-weight: 600;
+        }
+
+        .remove-btn {
+            background: rgba(219, 39, 119, 0.2);
+            border: 1px solid var(--pink-primary);
+            color: var(--pink-deep);
+            padding: 6px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+
+        .remove-btn:hover {
+            background: var(--pink-primary);
+            color: #fff;
+        }
+
+        footer {
+            margin-top: 80px;
+            text-align: center;
+            color: var(--pink-deep);
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-top: 2px solid var(--gold);
+            padding-top: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <div class="site-nav">
+        <div class="nav-logo">LM NAILED IT!</div>
+        <div class="nav-links">
+            <span onclick="document.getElementById('services-grid').scrollIntoView({behavior: 'smooth'})">Services</span>
+            <span onclick="openBookingModal()">Book Appointment</span>
+            <span onclick="alert('Contact: 074 038 4030 | Appointments Only')">Tel: 074 038 4030</span>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <div class="hero-section">
+        <div class="hero-badge">✨ 10% OFF YOUR FIRST VISIT! ✨</div>
+        <h1>BEAUTIFUL NAILS. CONFIDENT YOU. LET'S NAIL IT!</h1>
+        <p>Premium nail services with precision, creativity & care. Your nails, your vibe. Book your appointment today.</p>
+        <button class="hero-btn" onclick="document.getElementById('services-grid').scrollIntoView({behavior: 'smooth'})">Book Now!</button>
+    </div>
+
+    <div class="main-wrapper">
+        
+        <!-- SERVICES CATALOG WITH EMBEDDED REAL IMAGES -->
+        <h2 class="section-title" id="services-grid">Signature Nail Collections</h2>
+        <div class="grid">
+            
+            <!-- Item 1 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image.png" style="object-position: 50% 15%; transform: scale(2.2);" alt="Red & White Floral French">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Red & White Floral French</h3>
+                        <div class="desc">Stunning red tips accented with delicate hand-painted white floral art.</div>
+                    </div>
+                    <div>
+                        <div class="price">R250</div>
+                        <button class="liquid-btn" onclick="addItem('Red & White Floral French', 250)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_2.png" style="object-position: 50% 20%; transform: scale(2.2);" alt="Zebra & Red Spot Stilettos">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Zebra & Red Dot Stilettos</h3>
+                        <div class="desc">Daring stiletto shape featuring bold zebra tips, polka dots, and gold charms.</div>
+                    </div>
+                    <div>
+                        <div class="price">R300</div>
+                        <button class="liquid-btn" onclick="addItem('Zebra & Red Spot Stilettos', 300)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_3.png" style="object-position: 50% 25%; transform: scale(2.2);" alt="Soft Pink Almond Florals">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Soft Pink Almond Florals</h3>
+                        <div class="desc">Classic soft pink almond-shaped acrylics with raised white floral detailing.</div>
+                    </div>
+                    <div>
+                        <div class="price">R220</div>
+                        <button class="liquid-btn" onclick="addItem('Soft Pink Almond Florals', 220)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_4.png" style="object-position: 50% 20%; transform: scale(2.2);" alt="Pearl Accent White French">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Pearl Accent White French</h3>
+                        <div class="desc">Clean white French tips on a pink base enhanced with dainty micro-pearls.</div>
+                    </div>
+                    <div>
+                        <div class="price">R260</div>
+                        <button class="liquid-btn" onclick="addItem('Pearl Accent White French', 260)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_5.png" style="object-position: 50% 20%; transform: scale(2.2);" alt="Barbie Pink & Cow Print">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Barbie Pink & Cow Print</h3>
+                        <div class="desc">Vibrant pink gloss paired with trendy playful cow print nail art.</div>
+                    </div>
+                    <div>
+                        <div class="price">R280</div>
+                        <button class="liquid-btn" onclick="addItem('Barbie Pink & Cow Print', 280)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_7.png" style="object-position: 50% 20%; transform: scale(2.2);" alt="Red & Leopard Print Glam">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Red & Leopard Print Glam</h3>
+                        <div class="desc">Fiery red gloss combined with chic pink-and-black leopard accent nails.</div>
+                    </div>
+                    <div>
+                        <div class="price">R290</div>
+                        <button class="liquid-btn" onclick="addItem('Red & Leopard Print Glam', 290)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_8.png" style="object-position: 50% 20%; transform: scale(2.2);" alt="Pink Bows & Leopard French">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Pink Bows & Leopard French</h3>
+                        <div class="desc">Soft pink square nails featuring 3D bow sculptures and leopard print tips.</div>
+                    </div>
+                    <div>
+                        <div class="price">R320</div>
+                        <button class="liquid-btn" onclick="addItem('Pink Bows & Leopard French', 320)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 8 -->
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="image_10.png" style="object-position: 50% 25%; transform: scale(2.2);" alt="Red Polka Dots & Bow Art">
+                </div>
+                <div class="card-content">
+                    <div>
+                        <h3>Red Polka Dots & Bow Art</h3>
+                        <div class="desc">Charming rich red nails with white polka dot patterns and custom bow accents.</div>
+                    </div>
+                    <div>
+                        <div class="price">R270</div>
+                        <button class="liquid-btn" onclick="addItem('Red Polka Dots & Bow Art', 270)">Book Appointment</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- LIVE CART AND SUMMARY -->
+        <div class="checkout-container">
+            <h3 style="color: var(--pink-deep); margin-top:0; font-size: 1.4rem;">Your Booking Summary</h3>
+            <div id="item-list" style="color: #6d4c5c; margin: 20px 0; font-size: 1rem;">No nail sets selected yet. Choose your favorite design above to start.</div>
+            <hr style="border-color: rgba(212, 175, 55, 0.4); margin: 20px 0;">
+            <p style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:bold; margin-bottom:0; color: var(--pink-deep);">
+                <span>Total:</span> <span id="total" style="color: var(--gold-dark);">R0.00</span>
+            </p>
+            <button class="liquid-btn checkout-btn" onclick="openBookingModal()">Proceed to Book Appointment</button>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>LM NAILED IT! NAIL SALON &bull; APPOINTMENTS ONLY &bull; TEL: 074 038 4030</p>
+    </footer>
+
+    <!-- BOOKING MODAL -->
+    <div class="modal" id="modalSlip">
+        <div class="modal-content">
+            <h3 style="color: var(--pink-deep); margin-top:0;">Complete Your Nail Appointment</h3>
+            <div class="slip-box" id="slipText"></div>
+            
+            <label>Your Full Name / WhatsApp Number:</label>
+            <input type="text" id="clientName" placeholder="e.g. Jessica">
+
+            <label>Appointment Date:</label>
+            <input type="date" id="appointmentDate">
+
+            <label>Time Slot:</label>
+            <input type="time" id="appointmentTime">
+
+            <label>Choose Payment Option:</label>
+            <div class="payment-options">
+                <div class="payment-option-card">
+                    <input type="radio" id="payStore" name="paymentChoice" value="Pay in store" checked>
+                    <label for="payStore" style="display:inline; cursor:pointer;">Pay in store</label>
+                </div>
+                <div class="payment-option-card">
+                    <input type="radio" id="payNow" name="paymentChoice" value="Pay online">
+                    <label for="payNow" style="display:inline; cursor:pointer;">Pay online</label>
+                </div>
+            </div>
+
+            <button class="liquid-btn" style="margin-top:15px; background: linear-gradient(135deg, var(--pink-primary), var(--pink-deep)); border-color: var(--gold); color:#fff;" onclick="finishOrder()">Confirm Booking & Send Slip</button>
+            <button class="liquid-btn" onclick="closeModal()" style="margin-top:10px; background: #fff; border-color: var(--gold); color: var(--pink-deep);">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addItem(name, price) {
+            cart.push({ name, price });
+            updateCart();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function updateCart() {
+            const listEl = document.getElementById('item-list');
+            const totalEl = document.getElementById('total');
+
+            if (cart.length === 0) {
+                listEl.innerHTML = "No nail sets selected yet. Choose your favorite design above to start.";
+                totalEl.innerText = "R0.00";
+                return;
+            }
+
+            let html = "";
+            let total = 0;
+            cart.forEach((item, index) => {
+                html += `<div class="cart-item-row">
+                    <span>${item.name} - R${item.price}</span>
+                    <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+                </div>`;
+                total += item.price;
+            });
+
+            listEl.innerHTML = html;
+            totalEl.innerText = `R${total}`;
+        }
+
+        function openBookingModal() {
+            if (cart.length === 0) {
+                alert("Please select at least one nail design first!");
+                return;
+            }
+
+            let total = cart.reduce((sum, item) => sum + item.price, 0);
+            let timeStr = new Date().toLocaleTimeString();
+
+            let slip = `===============================\n`;
+            slip += `     LM NAILED IT! APPOINTMENT\n`;
+            slip += `     Appointments Only Service\n`;
+            slip += `===============================\n`;
+            slip += `Generated: ${timeStr}\n`;
+            cart.forEach(item => {
+                slip += `> ${item.name} ... R${item.price}\n`;
+            });
+            slip += `-------------------------------\n`;
+            slip += `TOTAL DUE: R${total}\n`;
+            slip += `===============================\n`;
+
+            document.getElementById('slipText').innerText = slip;
+            document.getElementById('modalSlip').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modalSlip').style.display = 'none';
+        }
+
+        function finishOrder() {
+            let name = document.getElementById('clientName').value;
+            let date = document.getElementById('appointmentDate').value;
+            let time = document.getElementById('appointmentTime').value;
+            let paymentChoice = document.querySelector('input[name="paymentChoice"]:checked').value;
+
+            if (!name || !date || !time) {
+                alert("Please enter your name, appointment date, and time slot!");
+                return;
+            }
+
+            alert(`Booking Confirmed for ${name}!\nDate: ${date} at ${time}\nPayment Preference: ${paymentChoice}\n\nPlease contact LM Nailed It! at 074 038 4030 to finalize your slot.`);
             closeModal();
             cart = [];
             updateCart();
